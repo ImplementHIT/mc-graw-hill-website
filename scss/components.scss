@@ -123,8 +123,11 @@ body{
 
 //////////////////////////////
 // cards
-.card-boxed{
-	max-width: 300px;
+.card{
+	border: 0;
+	&.card-boxed{
+		max-width: 300px;
+	}
 }
 
 //////////////////////////////
@@ -189,9 +192,9 @@ body{
 }
 
 //////////////////////////////
-// divider
+// split
 [class*="split"]{
-	width: 150px;
+	width: 80px;
 	height: 3px;
 	margin-left: auto;
 	margin-right: auto;

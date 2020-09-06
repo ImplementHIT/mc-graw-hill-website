@@ -1,0 +1,153 @@
+//////////////////////////////
+// width boxed
+$max-width-container-page: 1100px;
+$max-width-title: 700px;
+$max-width-sm: 400px;
+
+
+//////////////////////////////
+// mixins
+//transitions
+@mixin transition-015 {
+    -moz-transition: all 0.15s ease;
+    -webkit-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+@mixin transition-03 {
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+@mixin transition-05 {
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+@mixin transition-25 {
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+// border radius
+@mixin circle{
+  -webkit-border-radius: 200%;
+  -moz-border-radius: 200%;
+  border-radius: 200%;
+}
+@mixin corner-oval{
+  -webkit-border-radius: 10rem;
+  -moz-border-radius: 10rem;
+  border-radius: 10rem;
+}
+@mixin corner-5{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+@mixin corner-10{
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+// opacity
+@mixin opacity-0{
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  opacity: 0;
+}
+@mixin opacity-10{
+  filter: alpha(opacity=10);
+  -moz-opacity: 0.1;
+  opacity: 0.1;
+}
+@mixin opacity-20{
+	filter: alpha(opacity=20);
+	-moz-opacity: 0.2;
+	opacity: 0.2;
+}
+@mixin opacity-50{
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+@mixin opacity-100{
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  opacity: 1;
+}
+
+// scale
+@mixin scale-1{
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+}
+@mixin scale-0{
+	-webkit-transform: scale(0);
+	-ms-transform: scale(0);
+	transform: scale(0);
+}
+
+// positions
+@mixin postion-fixed{  
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+
+// fonts
+@mixin icon-aw-font{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: $icon-font-size;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+// placeholder
+@mixin placehoder{
+  color: $light-color;
+  font-weight: 300;
+}
+// truncate
+@mixin truncate{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+// borders
+@mixin border-top-primary{
+  border-top: 1px solid $primary-color;
+}
+@mixin border-bottom-primary{
+  border-bottom: 1px solid $primary-color;
+}
+@mixin border-top-gray{
+  border-top: 1px solid $gray-color;
+}
+@mixin border-bottom-gray{
+  border-bottom: 1px solid $gray-color;
+}
+
+// background size
+// cover
+@mixin bg-cover{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

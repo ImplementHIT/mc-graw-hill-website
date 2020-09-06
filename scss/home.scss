@@ -32,7 +32,7 @@
 	}
 }
 
-
+//////////////////////////////
 // slide
 .home-slide{
 	.swiper-slide{
@@ -64,6 +64,8 @@
 		}
 	}
 }
+
+//////////////////////////////
 // books
 .books-carrousel{
 	.swiper-slide{
@@ -89,10 +91,7 @@
 		left: 0;
 		height: 100%;
 		width: 100%;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
+		@include bg-cover;
 		background-position: center center;
 		background-image: url('../images/stock-4.jpg');
 		@include opacity-10;
@@ -103,6 +102,31 @@
 	}
 }
 
+//////////////////////////////
+// subscription
+.subscription-section{
+	position: relative;
+	&:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		@include bg-cover;
+		background-position: center center;
+		background-attachment: fixed;
+		background-image: url('../images/stock-1.jpg');
+		@include opacity-20;
+	}
+	.books-wrap{
+		position: relative;
+		z-index: 2;
+	}
+}
+
+
+//////////////////////////////
 // list
 .home-list{
 	li{
@@ -120,7 +144,7 @@
 			position: relative;
 			padding: 10px 30px 10px 50px;
 			@include corner-oval;
-			background-color: rgba( $berry-color, .1 );
+			background-color: $berry-light-color;
 			[class*="fa-"]{
 				left:	15px;
 				top: 10px;
@@ -129,10 +153,114 @@
 	}
 }
 
-// suscription-section
-.suscription-section{
+// subscription-section
+.subscription-section{
 	.card{
 		@include corner-10;
 		overflow: hidden;
+	}
+}
+
+
+
+//////////////////////////////
+// subscription form
+.subscription-form{
+	padding: 20px;
+	@include corner-10;
+	@include md{
+		padding: 40px;
+	}
+	input.form-control-lg{
+		background-color: $berry-light-color;
+	}
+}
+
+// steps
+.subscription-steps{
+	.nav-item{
+		margin: 0px 10px;
+		@include md{
+			margin: 0px 20px;
+		}
+		&:last-child{
+			.nav-link{
+				&:after{
+					content: none;
+				}
+			}
+		}
+		.nav-link{
+			font-weight: bold;
+			font-size: $title-font-size-xs;
+			font-family: $titles-ff;
+			padding: 0;
+			text-align: center;
+			line-height: 40px;
+			height: 40px;
+			width: 40px;
+			border-width: 1px;
+			border-style: solid;
+			position: relative;
+			@include circle;
+			@include transition-03;
+			border-color: white;
+			background-color: transparent;
+			color: white;
+			&:before{
+				@include scale-1;
+			}
+			> span{
+				position: relative;
+				z-index: 1;
+			}
+			&:after{
+				content: "";
+				position: absolute;
+				height: 1px;
+				top: 0;
+				left: 100%;
+				bottom: 0;
+				margin: auto;
+				background-color: white;
+				width: 20px;
+				@include md{
+					width: 40px;
+				}
+			}
+			&:before{
+				content: "";
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 40px;
+				height: 40px;
+				margin: auto;
+				@include circle;
+				@include transition-03;
+				@include scale-0;
+				background-color: white;
+			}
+			&.active{
+				border-color: transparent;
+				background-color: transparent;
+				color: $berry-color;
+				&:before{
+					@include scale-1;
+				}
+			}
+		}
+		&.visited{
+			.nav-link{
+				border-color: transparent;
+				background-color: transparent;
+				color: $berry-color;
+				&:before{
+					@include scale-1;
+				}
+			}
+		}
 	}
 }

@@ -12,8 +12,7 @@
 .headline-subtitle{
 	font-size: $subtitle-font-size;
 	margin-bottom: 20px;
-	font-weight: bold;
-	font-family: $titles-ff;
+	font-weight: 300;
 }
 .headline-title-xl{
 	font-size: $title-font-size;
@@ -27,7 +26,7 @@
 .headline-title-sm{
 	font-size: $title-font-size-sm;
 	margin-bottom: 20px;
-	font-weight: 300;
+	font-weight: bold;
 	font-family: $titles-ff;
 }
 .headline-title-xs{
@@ -80,6 +79,27 @@ p{
 // box lighter
 .box-lighter{
 	padding: 40px;
-	background-color: #fcebe4;
+	background-color: $berry-light-color;
 	border-radius: 30px;
+}
+
+// buttons
+.btn,[class*="btn-"]{
+	@include transition-03;
+}
+
+
+// icons
+.fas,
+.far{
+	font-size:$icon-font-size;
+	&.size-sm{
+		font-size:$icon-font-size-sm;
+	}
+	&.size-md{
+		font-size:$icon-font-size-md;
+	}
+	&.size-lg{
+		font-size:$icon-font-size-lg;
+	}
 }
