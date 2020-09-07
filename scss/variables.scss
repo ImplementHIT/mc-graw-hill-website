@@ -24,12 +24,14 @@ $bg-white-90: rgba(255,255,255,0.9);
 // colors
 //////////////////////////////
 $name-color: (
-  primary: $primary-color,
-  secondary: $secondary-color,
-  secondary-accent: $secondary-accent-color,
-  berry: $berry-color,
-  concord: $concord-color,
-  orange: $orange-color,
+	dark: $dark-color,
+	primary: $primary-color,
+	secondary: $secondary-color,
+	secondary-accent:$secondary-accent-color,
+	berry: $berry-color,
+	berry-light: $berry-light-color,
+	concord: $concord-color,
+	orange: $orange-color,
 );
 
 @each $name, $value in $name-color {
@@ -52,4 +54,17 @@ $name-color: (
   .custom-icon-list-#{$name} li [class*="fa-"]{
     color: $value;
   }
+
+	// color
+	.color-#{$name}{
+		color: $value;
+	}
+	.color-#{$name}-hover:hover{
+		color: $value;
+	}
+
+	// background
+	.bg-#{$name}{
+		background-color: $value;
+	}
 }

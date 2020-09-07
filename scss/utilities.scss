@@ -45,6 +45,16 @@
 		min-width: 600px;
 	}
 }
+@include lg{
+	.min-w-lg-700{
+		min-width: 700px;
+	}
+}
+@include lg{
+	.min-w-lg-600{
+		min-width: 600px;
+	}
+}
 //////////////////////////////
 // height
 .h-200{
@@ -73,33 +83,5 @@ input{
 	}
 	&:-moz-placeholder {
 		font-weight: 300;
-	}
-}
-
-
-//////////////////////////////
-$name-color: (
-	dark: $dark-color,
-	primary: $primary-color,
-	secondary: $secondary-color,
-	secondary-accent:$secondary-accent-color,
-	berry: $berry-color,
-	berry-light: $berry-light-color,
-	concord: $concord-color,
-	orange: $orange-color,
-);
-	
-@each $name, $value in $name-color {
-	// color
-	.color-#{$name}{
-		color: $value;
-	}
-	.color-#{$name}-hover:hover{
-		color: $value;
-	}
-
-	// background
-	.bg-#{$name}{
-		background-color: $value;
 	}
 }
