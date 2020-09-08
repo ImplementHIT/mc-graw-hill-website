@@ -80,6 +80,17 @@
 				color: $berry-color;
 			}
 		}
+		//thumb
+		.thumb-book{
+			width: 100%;
+			height: 300px;
+			img{
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				object-position: 50% 0%; 
+			}
+		}
 	}
 }
 .books-section{
@@ -92,7 +103,8 @@
 		height: 100%;
 		width: 100%;
 		@include bg-cover;
-		background-position: center center;
+		background-attachment: fixed;
+		background-position: top center;
 		background-image: url('../images/stock-4.jpg');
 		@include opacity-10;
 	}
@@ -144,7 +156,8 @@
 			position: relative;
 			padding: 10px 30px 10px 50px;
 			@include corner-oval;
-			background-color: $berry-light-color;
+			background-color: rgba($secondary-color, 0.2);
+			.icon-list,
 			[class*="fa-"]{
 				left:	15px;
 				top: 10px;
@@ -153,11 +166,50 @@
 	}
 }
 
+
+//home description
+.home-description{
+	font-size: $font-size-md;
+}
+
+.icon-header{
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	@include circle;
+	background-color: rgba($secondary-color, 0.21);
+	position: relative;
+	margin-bottom: 20px;
+	img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		height: 35px;
+		width: 35px;
+	}
+}
+
+
+
 // subscription-section
 .subscription-section{
+	.subscription-wrap.boxed{
+		max-width: 1200px;
+	}
 	.card{
 		@include corner-10;
 		overflow: hidden;
+		height: 100%;
+		.card-body{
+			display: flex;
+			flex-direction: column;
+			.subscription-container-btn{
+				margin-top: auto;
+			}
+		}
 	}
 }
 

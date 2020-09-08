@@ -17,10 +17,13 @@
 .headline-title-xl{
 	font-size: $title-font-size;
 	margin-bottom: 20px;
-	font-weight: bold;
-	font-family: $titles-ff;
+	font-weight: 400;
 	@include md{
 		font-size: $title-font-size-md;
+	}
+	&.title-font{
+		font-family: $titles-ff;
+		font-weight: 600;
 	}
 }
 .headline-title-sm{

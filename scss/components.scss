@@ -136,7 +136,8 @@ body{
 .card{
 	border: 0;
 	&.card-boxed{
-		max-width: 300px;
+		max-width: 380px;
+		margin: 0 auto;
 	}
 }
 
