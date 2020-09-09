@@ -212,3 +212,8 @@ body{
 	background-color: rgba(0,0,0,0.15);
 	@include corner-oval;
 }
+
+
+.icon-sm{
+	font-size:$icon-font-size-sm;
+}

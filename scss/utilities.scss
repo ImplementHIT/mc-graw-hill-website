@@ -85,3 +85,15 @@ input{
 		font-weight: 300;
 	}
 }
+
+/////////////////////////////
+//transition
+.transition-03{
+	@include transition-03;
+}
+
+/////////////////////////////
+//cursor
+.pointer{
+	cursor: pointer;
+}

@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>0</title>
+	<title>My Path Surgery</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes"/>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+	<link rel="manifest" href="images/favicon/f/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicon/f/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	
 	<!-- jquery librery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -83,9 +101,6 @@
 									<a class="nav-link" id="rotations" data-toggle="tab" href="#rotations-tab" role="tab" aria-controls="rotations-tab" aria-selected="false"><span>2</span></a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="schedule" data-toggle="tab" href="#schedule-tab" role="tab" aria-controls="schedule-tab" aria-selected="false"><span>3</span></a>
-								</li>
-								<li class="nav-item">
 									<a class="nav-link" id="customize" data-toggle="tab" href="#customize-tab" role="tab" aria-controls="customize-tab" aria-selected="false"><span>4</span></a>
 								</li>
 								<li class="nav-item">
@@ -131,7 +146,7 @@
 															</div>
 															<div class="col-12 col-md-6 ">
 																<div class="form-group">
-																	<label for="Phone" class="">Phone</label>
+																	<label for="Phone" class="">Mobile Phone</label>
 																	<div>
 																		<input type="number" class="form-control" id="phone">
 																	</div>
@@ -148,15 +163,10 @@
 														<!-- split -->
 														<div class="dropdown-divider my-5"></div>
 			
-														<div class="custom-control custom-checkbox mb-4">
-															<input type="checkbox" class="custom-control-input" id="agree-eula">
-															<label class="custom-control-label" for="agree-eula">Agree to the <a href="https://www.dropbox.com/s/9zuritv63ke6pel/EULA%20McGraw%20Hill.docx?dl=0" target="_blank">End User License Agreement (EULA)</a></label>
-														</div>
-		
 														<div class="bg-light p-3">
 
 															<div class="form-group">
-																<label>Select your grad</label>
+																<label>US or Foreign Medical School Graduate</label>
 																<select class="custom-select">
 																	<option>Select one</option>
 																	<option value="1" selected>US grad</option>
@@ -165,7 +175,7 @@
 															</div>
 			
 															<div class="form-group">
-																<label for="year">Year</label>
+																<label for="year">Medical school graduation year</label>
 																<input type="number" class="form-control col-3" id="Year">
 															</div>
 			
@@ -197,13 +207,18 @@
 																</div>
 															</div>
 														</div>
+														<div class="custom-control custom-checkbox my-4">
+															<input type="checkbox" class="custom-control-input" id="agree-eula">
+															<label class="custom-control-label" for="agree-eula">Agree to the <a href="https://www.dropbox.com/s/9zuritv63ke6pel/EULA%20McGraw%20Hill.docx?dl=0" target="_blank" class="color-berry color-secondary-hover transition-03">End User License Agreement (EULA)</a></label>
+														</div>
+
 														<div class="bg-berry-light p-3 mt-4">
-															Annual license paid upfron 
-															<span class="color-berry headline-title-sm ml-2">$250-$299</span>
+															12 Month License  
+															<span class="color-berry headline-title-sm ml-2">$299</span>
 														</div>
 														<div class="row mt-5 justify-content-center">
 															<div class="col-auto">
-																<a class="next_page btn-lg button btn-secondary btn-oval">Next</a>
+																<a href="javascript:void(0)" class="next_page btn-lg button btn-secondary btn-oval pointer">Next</a>
 															</div>
 														</div>			
 													</form>
@@ -223,338 +238,135 @@
 											<div class="row align-items-center text-left">
 												<div class="col-12 mt-3 mt-md-0">
 													<form>
+														<p class="mt-4">Add at least your first two rotations to get started, you can modify them later.</p>
 														<div class="my-4">
-															<div class="form-group">
-																<label for="rotation-name" class="">Rotation Name</label>
-																<div>
-																	<input type="text" class="form-control" id="rotation-name" placeholder="Name">
+															<label class="headline-title-xs color-berry">Rotations</label>
+															<div class="row">
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="text" class="form-control" id="rotation-name-1" placeholder="Rotation name">
+																	</div>
 																</div>
-															</div>
-
-															<div class="dropdown-divider my-5"></div>
-
-															<div>
-																<div class="form-group">
-																	<label class="headline-title-xs color-berry">Select attendings</label>
-																	<div class="bg-light p-3">
-																		<div class="row">
-																			<div class="col-12 col-md-6 col-lg-4 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="attending-1">
-																					<label class="custom-control-label" for="attending-1">Attending</label>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6 col-lg-4 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="attending-2">
-																					<label class="custom-control-label" for="attending-2">Attending</label>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6 col-lg-4 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="attending-3">
-																					<label class="custom-control-label" for="attending-3">Attending</label>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6 col-lg-4 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="attending-4">
-																					<label class="custom-control-label" for="attending-4">Attending</label>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6 col-lg-4 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="attending-5">
-																					<label class="custom-control-label" for="attending-5">Attending</label>
-																				</div>
-																			</div>
-																		</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="star-date-1" placeholder="Start Date">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="end-date-1" placeholder="End Date">
+																	</div>
+																</div>
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<select class="custom-select">
+																			<option selected>Select Rotation Template</option>
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																		</select>
 																	</div>
 																</div>
 															</div>
-
-															<div class="dropdown-divider my-5"></div>
-
-															<div>
-																<div class="form-group justify-content-between">
-																	<div class="row">
-																		<div class="col">
-																			<label class="headline-title-xs color-berry">Define rotation topics</label>
-																		</div>
-																		<div class="col-auto">
-																			<button class="btn-sm btn-secondary align-self-end">
-																				<i class="fas fa-plus text-white"></i>
-																			</button>
-																		</div>
-																		<div class="col-12 my-2">
-																			<div class="input-group">
-																				<input type="text" class="form-control" id="first-name" placeholder="Add new topic">
-																				<div class="input-group-append">
-																					<button class="btn btn-outline-secondary" type="button">
-																						<i class="fas fa-check"></i>
-																					</button>
-																					<button class="btn btn-outline-primary" type="button">
-																						<i class="fas fa-times"></i>
-																					</button>
-																				 </div>
-																			</div>
-																		</div>
+															<div class="row">
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="text" class="form-control" id="rotation-name-2" placeholder="Rotation name">
 																	</div>
-																	<div class="bg-light p-3">
-																		<div class="row">
-																			<div class="col-12 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="rotation-1">
-																					<label class="custom-control-label" for="rotation-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit rotation</label>
-																				</div>
-																			</div>
-																			<div class="col-12 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="rotation-2">
-																					<label class="custom-control-label" for="rotation-2">rotation</label>
-																				</div>
-																			</div>
-																			<div class="col-12 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="rotation-3">
-																					<label class="custom-control-label" for="rotation-3">rotation</label>
-																				</div>
-																			</div>
-																			<div class="col-12 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="rotation-4">
-																					<label class="custom-control-label" for="rotation-4">rotation</label>
-																				</div>
-																			</div>
-																			<div class="col-12 py-2">
-																				<div class="custom-control custom-checkbox">
-																					<input type="checkbox" class="custom-control-input" id="rotation-5">
-																					<label class="custom-control-label" for="rotation-5">rotation</label>
-																				</div>
-																			</div>
-																		</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="star-date-2" placeholder="Start Date">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="end-date-2" placeholder="End Date">
+																	</div>
+																</div>
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<select class="custom-select">
+																			<option selected>Select Rotation Template</option>
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																		</select>
 																	</div>
 																</div>
 															</div>
-
-															<div class="dropdown-divider my-5"></div>
-
-															<div>
-																<label class="headline-title-xs color-berry">Browse through topics by topic category</label>
-																<div class="bg-light p-3">
-																	<div class="row">
-																		<div class="col-12 mb-2">
-																			<input type="text" class="form-control" id="first-name" placeholder="Search...">
-																		</div>
-																		<div class="col-12 py-2">
-																			<div class="custom-control custom-checkbox">
-																				<input type="checkbox" class="custom-control-input" id="topic-1">
-																				<label class="custom-control-label" for="topic-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit topic</label>
-																			</div>
-																		</div>
-																		<div class="col-12 py-2">
-																			<div class="custom-control custom-checkbox">
-																				<input type="checkbox" class="custom-control-input" id="topic-2">
-																				<label class="custom-control-label" for="topic-2">topic</label>
-																			</div>
-																		</div>
-																		<div class="col-12 py-2">
-																			<div class="custom-control custom-checkbox">
-																				<input type="checkbox" class="custom-control-input" id="topic-3">
-																				<label class="custom-control-label" for="topic-3">topic</label>
-																			</div>
-																		</div>
-																		<div class="col-12 py-2">
-																			<div class="custom-control custom-checkbox">
-																				<input type="checkbox" class="custom-control-input" id="topic-4">
-																				<label class="custom-control-label" for="topic-4">topic</label>
-																			</div>
-																		</div>
-																		<div class="col-12 py-2">
-																			<div class="custom-control custom-checkbox">
-																				<input type="checkbox" class="custom-control-input" id="topic-5">
-																				<label class="custom-control-label" for="topic-5">topic</label>
-																			</div>
-																		</div>
+															<div class="row">
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="text" class="form-control" id="rotation-name-3" placeholder="Rotation name">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="star-date-3" placeholder="Start Date">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="end-date-3" placeholder="End Date">
+																	</div>
+																</div>
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<select class="custom-select">
+																			<option selected>Select Rotation Template</option>
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																		</select>
 																	</div>
 																</div>
 															</div>
+															<div class="row">
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="text" class="form-control" id="rotation-name-4" placeholder="Rotation name">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="star-date-4" placeholder="Start Date">
+																	</div>
+																</div>
+																<div class="col-12 col-sm-6 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<input type="date" class="form-control" id="end-date-4" placeholder="End Date">
+																	</div>
+																</div>
+																<div class="col-12 col-md-3 px-md-2">
+																	<div class="form-group">
+																		<select class="custom-select">
+																			<option selected>Select Rotation Template</option>
+																			<option value="1">1</option>
+																			<option value="2">2</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="mt-2">
+																<button class="btn bg-berry text-white">
+																	<span class="fas fa-plus icon-sm mr-1"></span>
+																	Add Rotation
+																</button>
+															</div>
+
+															<div class="dropdown-divider my-4"></div>
+															
+															<div class="bg-berry-light p-3">
+																12 Month License  
+																<span class="color-berry headline-title-sm ml-2">$299</span>
+															</div>
+															
 														</div>
 														
 														<div class="row mt-5 justify-content-center">
 															<div class="col-auto">
-																<a class="back_page btn btn-outline-primary  btn-oval">back</a>
+																<a href="javascript:void(0)" class="back_page btn btn-outline-primary  btn-oval">back</a>
 															</div>
 															<div class="col-auto">
-																<a class="next_page btn btn-secondary btn-oval">Next</a>
-															</div>
-														</div>
-													</form>
-												</div>
-											</div>
-										</form>
-									</div>
-								</div>
-							</div>
-							<div class="tab-pane fade" id="schedule-tab" role="tabpanel" aria-labelledby="schedule-tab">
-								<div class="row">
-									<div class="col-12 col-md pr-md-5 text-center">
-										<form class="mx-auto subscription-form bg-white color-dark">
-											<h2 class="headline-title-sm m-0 color-berry">Rotation schedule</h2>
-											<!-- split -->
-											<div class="split-berry my-4"></div>
-											<div class="row align-items-center text-left">
-												<div class="col-12 mt-3 mt-md-0">
-													<form>
-														<div class="my-4">
-															<div class="row my-1">
-																<div class="col-12 mb-3">
-																	<div class="bg-light p-3">
-																		<div class="row">
-																			<div class="col-auto">
-																				<i class="fas fa-check-circle color-berry"></i> 
-																			</div>
-																			<div class="col">
-																				Annual license paid upfron
-																			</div>
-																		</div>
-																		<div class="dropdown-divider my-3"></div>
-																		<div class="row">
-																			<div class="col-12 col-md-6">
-																				<div class="form-group">
-																					<label for="start-date" class="">Star</label>
-																					<div>
-																						<input type="date" class="form-control" id="star-date" placeholder="Name">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6">
-																				<div class="form-group">
-																					<label for="end-date" class="">End</label>
-																					<div>
-																						<input type="date" class="form-control" id="end-date" placeholder="Name">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="row my-1">
-																<div class="col-12 mb-3">
-																	<div class="bg-light p-3">
-																		<div class="row">
-																			<div class="col-auto">
-																				<i class="fas fa-check-circle color-berry"></i> 
-																			</div>
-																			<div class="col">
-																				Annual license paid upfron
-																			</div>
-																		</div>
-																		<div class="dropdown-divider my-3"></div>
-																		<div class="row">
-																			<div class="col-12 col-md-6">
-																				<div class="form-group">
-																					<label for="start-date" class="">Star</label>
-																					<div>
-																						<input type="date" class="form-control" id="star-date" placeholder="Name">
-																					</div>
-																				</div>
-																			</div>
-																			<div class="col-12 col-md-6">
-																				<div class="form-group">
-																					<label for="end-date" class="">End</label>
-																					<div>
-																						<input type="date" class="form-control" id="end-date" placeholder="Name">
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-
-															<div class="dropdown-divider my-5"></div>
-
-															<div>
-																<div class="form-group">
-																	<label class="headline-title-xs color-berry">Enter vacations</label>
-																	<div>
-																		<input type="date" class="form-control" id="star-date" placeholder="Name">
-																	</div>
-																</div>
-															</div>
-
-															<div class="dropdown-divider my-5"></div>
-
-															<div>
-																<div class="form-group justify-content-between">
-																	<div class="row">
-																		<div class="col">
-																			<label class="headline-title-xs color-berry">Assign rotation focus</label>
-																			<div class="bg-berry-light px-3 py-1">
-																				<div class="bg-white p-3 my-3">
-																					<div class="row">
-																						<div class="col-auto">
-																							<i class="fas fa-check-circle color-berry"></i> 
-																						</div>
-																						<div class="col">
-																							Annual license paid upfron
-																						</div>
-																					</div>
-																					<div class="dropdown-divider my-3"></div>
-																					<div class="row">
-																						<div class="col-12 col-md-6">
-																							<div class="form-group">
-																								<div>
-																									<select class="custom-select">
-																										<option selected>Select focus</option>
-																										<option value="1">1</option>
-																										<option value="2">2</option>
-																									</select>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="bg-white p-3 my-3">
-																					<div class="row">
-																						<div class="col-auto">
-																							<i class="fas fa-check-circle color-berry"></i> 
-																						</div>
-																						<div class="col">
-																							Annual license paid upfron
-																						</div>
-																					</div>
-																					<div class="dropdown-divider my-3"></div>
-																					<div class="row">
-																						<div class="col-12 col-md-6">
-																							<div class="form-group">
-																								<div>
-																									<select class="custom-select">
-																										<option selected>Select focus</option>
-																										<option value="1">1</option>
-																										<option value="2">2</option>
-																									</select>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														
-														<div class="row mt-5 justify-content-center">
-															<div class="col-auto">
-																<a class="back_page btn btn-outline-primary  btn-oval">back</a>
-															</div>
-															<div class="col-auto">
-																<a class="next_page btn btn-secondary btn-oval">Next</a>
+																<a href="javascript:void(0)" class="next_page btn btn-secondary btn-oval">Next</a>
 															</div>
 														</div>
 													</form>
@@ -577,10 +389,21 @@
 														<div class="my-4">
 															<div class="p-5 my-4 bg-light">
 																<div class="form-group ">
-																	<label class="mb-4">
-																		<i class="far fa-file-pdf size-md mr-2 color-berry"></i>
-																		Secure upload and storage of ABSITE score performance report
-																	</label>
+																	<p class="headline-title-xs color-berry">
+																		OPTONAL: ABSITE Performance Repot
+																	</p>
+																	<div class="mb-4">
+																		<div class="row">
+																			<div class="col-auto p-0">
+																				<i class="far fa-file-pdf size-md mr-2 color-berry"></i>
+																			</div>
+																			<div class="col">
+																				<label for="upload-pdf">
+																					Secure upload and storage of your ABSITE score performance report (PDF only).  Your personal information will never be shared or sold. Your report is used to create a personalized 6-month ABSITE preparation plan, including daily questions, weekly quizzes, and quarterly practice exams all focused on your previous ABSITE performance.
+																				</label>
+																			</div>
+																		</div>
+																	</div>
 																	<div class="custom-file">
 																		<input type="file" class="custom-file-input" id="upload-pdf" aria-describedby="inputGroupFileAddon01">
 																		<label class="custom-file-label" for="upload-pdf">Choose file</label>
@@ -590,10 +413,21 @@
 
 															<div class="p-5 my-4 bg-light">
 																<div class="form-group ">
-																	<label class="mb-4">
-																		<i class="far fa-file-excel size-md mr-2 color-berry"></i>
-																		Secure upload and storage of Upload case logs 
-																	</label>
+																	<p class="headline-title-xs color-berry">
+																		OPTONAL: Case Logs
+																	</p>
+																	<div class="mb-4">
+																		<div class="row">
+																			<div class="col-auto p-0">
+																				<i class="far fa-file-pdf size-md mr-2 color-berry"></i>
+																			</div>
+																			<div class="col">
+																				<label for="upload-csv">
+																					Secure upload and storage of your ABSITE score performance report (PDF only).  Your report is used to personalize your curriculum throughout the year and will never be shared or sold.
+																				</label>
+																			</div>
+																		</div>
+																	</div>
 																	<div class="custom-file">
 																		<input type="file" class="custom-file-input" id="upload-csv" aria-describedby="inputGroupFileAddon01">
 																		<label class="custom-file-label" for="upload-csv">Choose file</label>
@@ -605,14 +439,26 @@
 
 															<div>
 																<div class="form-group">
-																	<label class="headline-title-xs color-berry">Number of questions for weekly rotation quiz</label>
+																	<label class="headline-title-xs color-berry">
+																		Maximum number of questions per weekly rotation quiz (5-20)
+																	</label>
+																	<p class="mb-4">
+																		You will still have the option to create unlimited quizzes on your own, and this will not impact your 6-month ABSITE preparation plan.
+																	</p>
 																	<div class="row">
-																		<div class="col-md-3 col-5">
+																		<div class="col-md-6">
 																			<select class="custom-select">
 																				<option selected="">Select one</option>
 																				<option value="1">1</option>
 																				<option value="2" >2</option>
-																				<option value="2" selected>3</option>
+																				<option value="2" >3</option>
+																				<option value="2" >4</option>
+																				<option value="2" >5</option>
+																				<option value="2" >6</option>
+																				<option value="2" >7</option>
+																				<option value="2" >8</option>
+																				<option value="2" >9</option>
+																				<option value="2" selected>10</option>
 																			</select>
 																		</div>
 																	</div>
@@ -653,13 +499,10 @@
 																		Thank you
 																	</h2>
 																	<p class="headline-subtitle">
-																		Your appointment request has been sent successfully.
+																		You have successfully subscribed!
 																	</p>
 																	<p>
-																		Email drip series with instructions on how to use the tool and best practices
-																	</p>
-																	<p>
-																		We'll see you soon.
+																		You will receive an email with instructions on how to get started, and best practices on how to leverage this program to support your training!
 																	</p>
 																</div>
 															</div>
