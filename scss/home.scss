@@ -1,5 +1,31 @@
 @import "definitions.scss";
-
+//intro
+section.home-intro{
+	padding: 0;
+	background-color: #D8E4E5;
+	@include md{
+		padding: 80px 40px;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-position: 40% 50%;
+		background-image: url('../images/intro-background@2x.jpg');
+	}
+	@include lg{
+		background-position: center center;
+		padding: 100px 40px;
+	}
+	@include xl{
+		background-image: url('../images/intro-background@3x.jpg');
+	}
+	.boxed{
+		padding-top: 0;
+		@include md{
+			padding-top: 50px;
+		}
+	}
+}
 //////////////////////////////
 // headline count
 .headline-count-section .fas{
@@ -165,6 +191,22 @@
 		}
 	}
 }
+
+//home intro
+.home-intro{
+	.boxed{
+		padding:50px 40px;
+	}
+	.headline-title{
+		@include md{
+			font-size: $title-font-size-lg;
+		}
+		@include lg{
+			font-size: $title-font-size-xl;
+		}
+	}
+}
+
 
 
 //home description
