@@ -2,7 +2,7 @@
   <div>
     <section class="home-intro">
       <img
-        src="images/intro-background@1x.jpg"
+        src="~/assets/images/intro-background@1x.jpg"
         alt="MyPath-Surgery-banner"
         class="img-fluid d-md-none"
       />
@@ -49,7 +49,7 @@
           <div class="text-center text-md-left">
             <div class="icon-header">
               <div class="icon-wrap">
-                <img src="images/hospital.png" alt="heart-icon" />
+                <img src="~/assets/images/hospital.png" alt="heart-icon" />
               </div>
             </div>
             <h2 class="headline-title-xl color-berry">My <br />Path-Surgery</h2>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-12 col-md-6 p-4  my-5 my-md-0">
           <img
-            src="images/dashboard.png"
+            src="~/assets/images/dashboard.png"
             alt=""
             class="img-fluid min-w-lg-600"
           />
@@ -97,7 +97,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/absite-slayer-book.jpg"
+                  src="~/assets/images/absite-slayer-book.jpg"
                   alt="absite-slayer-caption"
                   class="img-fluid"
                 />
@@ -106,7 +106,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/behind-the-knife-book.jpg"
+                  src="~/assets/images/behind-the-knife-book.jpg"
                   alt="behind-the-knife-caption"
                   class="img-fluid"
                 />
@@ -115,7 +115,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/essential-articles-in-general-surgery-book.jpg"
+                  src="~/assets/images/essential-articles-in-general-surgery-book.jpg"
                   alt="essential-articles-in-general-surgery-caption"
                   class="img-fluid"
                 />
@@ -124,7 +124,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/schwartzs-principles-of-surgery-book.jpg"
+                  src="~/assets/images/schwartzs-principles-of-surgery-book.jpg"
                   alt="schwartzs-principles-of-surgery-caption"
                   class="img-fluid"
                 />
@@ -133,7 +133,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/trauma-book.jpg"
+                  src="~/assets/images/trauma-book.jpg"
                   alt="trauma-caption"
                   class="img-fluid"
                 />
@@ -142,7 +142,7 @@
             <div class="col-12 col-sm-6 col-md-4">
               <div class="my-3">
                 <img
-                  src="images/zollingers-atlas-of-operations-book.jpg"
+                  src="~/assets/images/zollingers-atlas-of-operations-book.jpg"
                   alt="zollingers-atlas-of-operations-caption"
                   class="img-fluid"
                 />
@@ -158,7 +158,7 @@
       <div class="row align-items-center ">
         <div class="col-12 col-md-6 pr-md-5 order-2 order-md-1 my-5 my-md-0">
           <img
-            src="images/newsletter.png"
+            src="~/assets/images/newsletter.png"
             alt=""
             class="img-fluid min-w-lg-600 f-md-right"
           />
@@ -167,7 +167,7 @@
           <div class="text-center text-md-left">
             <div class="icon-header">
               <div class="icon-wrap">
-                <img src="images/email.png" alt="email-icon" />
+                <img src="~/assets/images/email.png" alt="email-icon" />
               </div>
             </div>
             <h2 class="headline-title-xl color-berry">Your <br />Rotation</h2>
@@ -224,7 +224,7 @@
             <div class="text-center text-md-left">
               <div class="icon-header">
                 <div class="icon-wrap">
-                  <img src="images/adjust.png" alt="adjust-icon" />
+                  <img src="~/assets/images/adjust.png" alt="adjust-icon" />
                 </div>
               </div>
               <h2 class="headline-title-xl color-berry">
@@ -261,7 +261,7 @@
             </ul>
           </div>
           <div class="col-12 col-md-6 my-5 my-md-0">
-            <img src="images/exam.png" alt="" class="img-fluid min-w-lg-600" />
+            <img src="~/assets/images/exam.png" alt="" class="img-fluid min-w-lg-600" />
           </div>
         </div>
       </div>
@@ -272,7 +272,7 @@
       <div class="row align-items-center">
         <div class="col-12 col-md-6 pr-md-5 order-2 order-md-1 my-5 my-md-0">
           <img
-            src="images/customize.png"
+            src="~/assets/images/customize.png"
             alt=""
             class="img-fluid f-md-right min-w-lg-600"
           />
@@ -281,7 +281,7 @@
           <div class="text-center text-md-left">
             <div class="icon-header">
               <div class="icon-wrap">
-                <img src="images/pencil.png" alt="pencil-icon" />
+                <img src="~/assets/images/pencil.png" alt="pencil-icon" />
               </div>
             </div>
             <h2 class="headline-title-xl color-berry">

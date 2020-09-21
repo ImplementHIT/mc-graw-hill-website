@@ -4,13 +4,16 @@
     <nav class="navbar navbar-expand-lg navbar-light boxed">
       <!-- logo -->
       <div>
-        <a href="index.html"
-          ><img src="images/mh-logo.png" alt="" class="img-fluid header-logo"
-        /></a>
+        <nuxt-link to="/"
+          ><img
+            src="~/assets/images/mh-logo.png"
+            alt=""
+            class="img-fluid header-logo"
+        /></nuxt-link>
       </div>
 
       <!-- toggle button mobile -->
-      <button class="menu-toggle d-lg-none">
+      <button class="menu-toggle d-lg-none" @click="showSideBar">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -46,3 +49,14 @@
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    showSideBar() {
+      console.log("NAV");
+      document.body.classList.remove("toggled");
+    },
+  },
+};
+</script>

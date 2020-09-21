@@ -3,9 +3,12 @@
   <div class="d-lg-none sidebar">
     <div id="sidebar-wrapper">
       <div class="sidebar-heading">
-        <a href="index.html"
-          ><img src="images/mh-logo.png" alt="" class="img-fluid header-logo"
-        /></a>
+        <nuxt-link to="/"
+          ><img
+            src="~/assets/images/mh-logo.png"
+            alt=""
+            class="img-fluid header-logo"
+        /></nuxt-link>
       </div>
       <div class="list-group list-group-flush">
         <a href="#path-surgery" class="list-group-item list-group-item-action"
@@ -35,6 +38,17 @@
       </div>
     </div>
     <!-- overlay -->
-    <div class="menu-toggle menu-overlay"></div>
+    <div class="menu-toggle menu-overlay" @click="hideSideBar"></div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    hideSideBar() {
+      console.log('sidebar');
+      document.body.classList.add("toggled");
+    },
+  },
+};
+</script>

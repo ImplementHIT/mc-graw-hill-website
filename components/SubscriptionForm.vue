@@ -12,7 +12,7 @@
           </p>
         </div>
         <div class="col-12 col-md-7 mt-4 mt-md-0">
-          <form @submit.prevent="sendSubscription">
+          <form @submit.prevent="sendSubscription" class="needs-validation" :class="{ "was-validated":sent }">
             <div class="row">
               <div class="col-12 col-lg">
                 <div class="form-group mb-lg-0">
@@ -68,12 +68,14 @@ export default {
       },
       sent: false,
       success: false,
+      error: false
     };
   },
   methods: {
     sendSubscription() {
-      if (this.form.name == "" || this.form.email == "") {
-        alert("Fill up form please");
+      if (this.form.name == "" || this.form.email == "" || !validEmail()) {
+        this.error = true;
+        return false;
       }
 
       axios
@@ -87,6 +89,10 @@ export default {
 
       this.sent = true;
     },
+    validEmail: function () {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(this.form.email);
+    }
   },
 };
 </script>
