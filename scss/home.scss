@@ -358,3 +358,23 @@ section.home-intro{
 		}
 	}
 }
+
+
+/*section link*/
+section{
+	position: relative;
+	.section-link{
+		@include lg{
+			position: absolute;
+			bottom: calc(100% + 200px);
+			left: 0;
+		}
+	}
+	&.py-0{
+		.section-link{
+			@include lg{
+				bottom: calc(100% + 300px);
+			}
+		}	
+	}
+}
