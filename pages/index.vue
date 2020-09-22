@@ -40,7 +40,7 @@
       </div>
     </section>
 
-    <SubscriptionForm />
+    <SubscriptionDiscountForm />
 
     <section class="boxed">
       <div class="section-link" id="path-surgery"></div>
@@ -380,7 +380,7 @@
                     </div>
                     <div class="text-center subscription-container-btn">
                       <div class="pt-3">
-                        <nuxt-link to="/subscription" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
+                        <nuxt-link to="/subscription?plan=6" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
                       </div>
                     </div>
                   </div>
@@ -447,7 +447,7 @@
                     </div>
                     <div class="text-center subscription-container-btn">
                       <div class="pt-3">
-                        <nuxt-link to="/subscription" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
+                        <nuxt-link to="/subscription?plan=12" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
                       </div>
                     </div>
                   </div>
@@ -514,7 +514,7 @@
                     </div>
                     <div class="text-center subscription-container-btn">
                       <div class="pt-3">
-                        <nuxt-link to="/subscription" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
+                        <nuxt-link to="/subscription?plan=24" class="btn btn-secondary btn-oval">Subscribe</nuxt-link>
                       </div>
                     </div>
                   </div>

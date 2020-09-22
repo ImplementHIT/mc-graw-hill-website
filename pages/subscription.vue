@@ -261,9 +261,9 @@
                             </div>
 
                             <div class="bg-berry-light p-3 mt-4">
-                              12 Month License
+                              {{ this.form.plan }} Month License
                               <span class="color-berry headline-title-sm ml-2"
-                                >$299</span
+                                >${{ planPrice }}</span
                               >
                             </div>
                             <div class="row mt-5 justify-content-center">
@@ -666,6 +666,7 @@ export default {
       schools: [],
       programs: [],
       questions: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      plans: [6, 12, 24],
       newRotation: {
         name: "",
         date_start: "",
@@ -673,6 +674,7 @@ export default {
         template: "",
       },
       form: {
+        plan: 6,
         step: 1,
         first_name: "",
         last_name: "",
@@ -696,10 +698,35 @@ export default {
     };
   },
   created() {
+    console.log(process.env.api);
+    this.form.plan =
+      typeof this.$route.query.plan !== "undefined" &&
+      this.plans.includes(parseInt(this.$route.query.plan))
+        ? parseInt(this.$route.query.plan)
+        : 6;
+
     this.$axios.$get("programs.json").then((res) => (this.programs = res));
     this.$axios.$get("schools.json").then((res) => (this.schools = res));
+
+    
   },
   computed: {
+    planPrice() {
+      let price;
+      switch (this.form.plan) {
+        case 12:
+          price = 299;
+          break;
+        case 24:
+          price = 499;
+          break;
+        default:
+          price = 199;
+          break;
+      }
+
+      return price;
+    },
     programsSorted() {
       return this.programs.sort();
     },

@@ -11,10 +11,10 @@
   "LazySidebar": {
     "description": "Auto imported from components/Sidebar.vue"
   },
-  "SubscriptionForm": {
-    "description": "Auto imported from components/SubscriptionForm.vue"
+  "SubscriptionDiscountForm": {
+    "description": "Auto imported from components/SubscriptionDiscountForm.vue"
   },
-  "LazySubscriptionForm": {
-    "description": "Auto imported from components/SubscriptionForm.vue"
+  "LazySubscriptionDiscountForm": {
+    "description": "Auto imported from components/SubscriptionDiscountForm.vue"
   }
 }

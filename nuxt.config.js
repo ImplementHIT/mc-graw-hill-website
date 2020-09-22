@@ -1,4 +1,10 @@
 export default {
+  env: {
+    api:
+      process.env.NODE_ENV == "production"
+        ? "https://engage.implementhit.net/api"
+        : "http://localhost:8000/api/",
+  },
   head: {
     titleTemplate: "%s - My Path Surgery",
     meta: [
@@ -121,6 +127,15 @@ export default {
   components: true,
   modules: ["@nuxtjs/axios"],
   axios: {
-    baseURL: process.env.NODE_ENV == 'production' ? 'http://mypath.implementhit.net' : "http://localhost:3333",
+    baseURL:
+      process.env.NODE_ENV == "production"
+        ? "http://mypath.implementhit.net"
+        : "http://localhost:3333",
+    headers: {
+      Authorization:
+        process.env.NODE_ENV == "production"
+          ? "Bearer uBzPfHFBJs1VAEvElki56YMlDUg22xAA6nD4L822HdnZAJZ6u5E2TkNoomGLgWR0UW06N7rEVydyQaqr"
+          : "Bearer dirGtx0kKJxrpmPzDGnITeQNdGt7yG1mg8zU1eSKvPPkWeREt74J3n6zzHroHROFh37yQ93Jm6nQrzdA",
+    },
   },
 };

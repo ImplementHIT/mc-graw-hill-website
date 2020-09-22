@@ -11,14 +11,28 @@
             <b class="fw-bold headline-subtitle">$25 off</b> a new subscription.
           </p>
         </div>
-        <div class="col-12 col-md-7 mt-4 mt-md-0">
+        <div
+          class="col-12 col-md-7 mt-4 mt-md-0 discount-container"
+          :class="{ 'discount-applied': success }"
+        >
+          <div class="discount-message text-white text-center">
+            <div class="wrap-message">
+              <h3 class="headline-title-sm color-secondary">
+                Thanks for subscribe!
+              </h3>
+              <p>
+                Use your email <strong>{{ form.email }}</strong> when enrolling
+                to get your discount!
+              </p>
+            </div>
+          </div>
           <form @submit.prevent="sendSubscription" class="needs-validation">
             <div class="row">
               <div class="col-12 col-lg">
                 <div class="form-group mb-lg-0">
                   <input
                     type="text"
-                    class="form-control-lg fw-light w-100"
+                    class="form-control form-control-lg fw-light w-100"
                     id="first-name"
                     placeholder="Your name*"
                     required
@@ -32,7 +46,7 @@
                 <div class="form-group mb-lg-0">
                   <input
                     type="email"
-                    class="form-control-lg fw-light w-100"
+                    class="form-control form-control-lg fw-light w-100"
                     id="email"
                     placeholder="your@email.com"
                     required
@@ -78,7 +92,7 @@ export default {
       }
 
       this.$axios
-        .$post("https://hookb.in/YVGPB0qJBjIo77ym39ll", this.form)
+        .$post(process.env.api + "subscription", this.form)
         .then((res) => {
           this.success = true;
         })

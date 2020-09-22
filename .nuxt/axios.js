@@ -158,7 +158,8 @@ export default (ctx, inject) => {
     "head": {},
     "post": {},
     "put": {},
-    "patch": {}
+    "patch": {},
+    "Authorization": "Bearer dirGtx0kKJxrpmPzDGnITeQNdGt7yG1mg8zU1eSKvPPkWeREt74J3n6zzHroHROFh37yQ93Jm6nQrzdA"
 }
 
   const axiosOptions = {
