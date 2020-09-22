@@ -697,12 +697,7 @@ export default {
   },
   created() {
     this.$axios.$get("programs.json").then((res) => (this.programs = res));
-  },
-  watch: {
-    "form.school_country": function(val, oldVal) {
-      if (val == "US")
-        this.$axios.$get("schools.json").then((res) => (this.schools = res));
-    },
+    this.$axios.$get("schools.json").then((res) => (this.schools = res));
   },
   computed: {
     programsSorted() {
