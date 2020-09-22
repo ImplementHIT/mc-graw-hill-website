@@ -119,4 +119,7 @@ export default {
   },
   css: ["@/css/main.css"],
   components: true,
+  modules: [
+    '@nuxtjs/axios',
+  ],
 };

@@ -19,61 +19,31 @@
           <!-- steps -->
           <div>
             <div class="subscription-steps mx-w-500 mx-auto my-5">
-              <ul
-                class="nav nav-pills row justify-content-center"
-                id="steps"
-                role="tablist"
-              >
+              <ul class="nav nav-pills row justify-content-center" id="steps">
                 <!-- ------------------------------------------------- -->
                 <!-- agregar la clase "visited" al nav-item cuando el paso este finalizado -->
 
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    id="payment"
-                    data-toggle="tab"
-                    href="#payment-tab"
-                    role="tab"
-                    aria-controls="payment-tab"
-                    aria-selected="true"
-                    ><span>1</span></a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
+                <li
+                  class="nav-item"
+                  v-for="(step, k) in [
+                    'payment',
+                    'rotations',
+                    'customize',
+                    'onboarding',
+                  ]"
+                  :key="k"
+                >
+                  <div
                     class="nav-link"
-                    id="rotations"
-                    data-toggle="tab"
-                    href="#rotations-tab"
-                    role="tab"
-                    aria-controls="rotations-tab"
-                    aria-selected="false"
-                    ><span>2</span></a
+                    :class="{
+                      active: form.step == k + 1,
+                      visited: form.step > k + 1,
+                    }"
+                    :id="step"
+                    @click.prevent=""
                   >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="customize"
-                    data-toggle="tab"
-                    href="#customize-tab"
-                    role="tab"
-                    aria-controls="customize-tab"
-                    aria-selected="false"
-                    ><span>3</span></a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    id="onboarding"
-                    data-toggle="tab"
-                    href="#onboarding-tab"
-                    role="tab"
-                    aria-controls="onboarding-tab"
-                    aria-selected="false"
-                    ><span>4</span></a
-                  >
+                    <span>{{ k + 1 }}</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -82,10 +52,9 @@
               id="content-subscription"
             >
               <div
-                class="tab-pane fade show active"
+                class="tab-pane fade"
+                :class="{ active: form.step == 1, show: form.step == 1 }"
                 id="payment-tab"
-                role="tabpanel"
-                aria-labelledby="payment-tab"
               >
                 <div class="row">
                   <div class="col-12 col-md pr-md-5 text-center">
@@ -109,6 +78,7 @@
                                       type="text"
                                       class="form-control"
                                       id="first-name"
+                                      v-model="form.first_name"
                                     />
                                   </div>
                                 </div>
@@ -123,6 +93,7 @@
                                       type="text"
                                       class="form-control"
                                       id="last-name"
+                                      v-model="form.last_name"
                                     />
                                   </div>
                                 </div>
@@ -135,6 +106,7 @@
                                       type="email"
                                       class="form-control"
                                       id="email"
+                                      v-model="form.email"
                                     />
                                   </div>
                                 </div>
@@ -149,6 +121,7 @@
                                       type="number"
                                       class="form-control"
                                       id="phone"
+                                      v-model="form.mobile"
                                     />
                                   </div>
                                 </div>
@@ -159,6 +132,9 @@
                                     type="checkbox"
                                     class="custom-control-input"
                                     id="agree"
+                                    v-model="
+                                      form.carrier_sms_charge_understanding
+                                    "
                                   />
                                   <label
                                     class="custom-control-label"
@@ -178,10 +154,38 @@
                                 <label
                                   >US or Foreign Medical School Graduate</label
                                 >
-                                <select class="custom-select">
-                                  <option>Select one</option>
-                                  <option value="1" selected>US grad</option>
-                                  <option value="2">foreign grad</option>
+                                <select
+                                  class="custom-select"
+                                  v-model="form.school_country"
+                                >
+                                  <option disabled selected>Select one</option>
+                                  <option value="US"
+                                    >US Medical School Graduate</option
+                                  >
+                                  <option value="Foreign"
+                                    >Foreign Medical School Graduate</option
+                                  >
+                                </select>
+                              </div>
+
+                              <div
+                                class="form-group"
+                                v-if="form.school_country == 'US'"
+                              >
+                                <label>Select your School</label>
+                                <select
+                                  class="custom-select"
+                                  v-model="form.school_name"
+                                >
+                                  <option disabled selected
+                                    >Select school</option
+                                  >
+                                  <option
+                                    v-for="(school, i) in schools"
+                                    :value="school"
+                                    :key="i"
+                                    >{{ school }}</option
+                                  >
                                 </select>
                               </div>
 
@@ -192,7 +196,10 @@
                                 <input
                                   type="number"
                                   class="form-control col-3"
+                                  min="1980"
+                                  value="1980"
                                   id="Year"
+                                  v-model="form.school_grad_year"
                                 />
                               </div>
 
@@ -200,7 +207,10 @@
                                 <label
                                   >Select your general surgery program</label
                                 >
-                                <select class="custom-select">
+                                <select
+                                  class="custom-select"
+                                  v-model="form.school_program"
+                                >
                                   <option selected>Select one</option>
                                   <option value="1">option 1</option>
                                   <option value="2">option 2</option>
@@ -212,8 +222,11 @@
                                 <div>
                                   <select
                                     class="form-control custom-select col-3"
+                                    v-model="form.school_level"
                                   >
-                                    <option selected>Select one</option>
+                                    <option disabled selected
+                                      >Select one</option
+                                    >
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -257,6 +270,7 @@
                               <div class="col-auto">
                                 <a
                                   href="javascript:void(0)"
+                                  @click.prevent="validateAndContinue"
                                   class="next_page btn-lg button btn-secondary btn-oval pointer"
                                   >Next</a
                                 >
@@ -269,11 +283,11 @@
                   </div>
                 </div>
               </div>
+
               <div
                 class="tab-pane fade"
+                :class="{ active: form.step == 2, show: form.step == 2 }"
                 id="rotations-tab"
-                role="tabpanel"
-                aria-labelledby="rotations-tab"
               >
                 <div class="row">
                   <div class="col-12 col-md pr-md-5 text-center">
@@ -294,7 +308,12 @@
                               <label class="headline-title-xs color-berry"
                                 >Rotations</label
                               >
-                              <div class="row">
+
+                              <div
+                                class="row"
+                                v-for="(rot, i) in form.rotations"
+                                :key="i"
+                              >
                                 <div class="col-12 col-md-3 px-md-2">
                                   <div class="form-group">
                                     <input
@@ -302,6 +321,7 @@
                                       class="form-control"
                                       id="rotation-name-1"
                                       placeholder="Rotation name"
+                                      v-model="form.rotations[i].name"
                                     />
                                   </div>
                                 </div>
@@ -312,6 +332,7 @@
                                       class="form-control"
                                       id="star-date-1"
                                       placeholder="Start Date"
+                                      v-model="form.rotations[i].date_start"
                                     />
                                   </div>
                                 </div>
@@ -322,152 +343,35 @@
                                       class="form-control"
                                       id="end-date-1"
                                       placeholder="End Date"
+                                      v-model="form.rotations[i].date_end"
                                     />
                                   </div>
                                 </div>
                                 <div class="col-12 col-md-3 px-md-2">
                                   <div class="form-group">
-                                    <select class="custom-select">
-                                      <option selected
-                                        >Select Rotation Template</option
+                                    <select
+                                      class="custom-select"
+                                      v-model="form.rotations[i].template"
+                                    >
+                                      <option disabled selected
+                                        >Select Template</option
                                       >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
+                                      <option
+                                        v-for="(program, p) in programsSorted"
+                                        :key="p"
+                                        :value="program"
+                                        >{{ program }}</option
+                                      >
                                     </select>
                                   </div>
                                 </div>
                               </div>
-                              <div class="row">
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="rotation-name-2"
-                                      placeholder="Rotation name"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="star-date-2"
-                                      placeholder="Start Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="end-date-2"
-                                      placeholder="End Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <select class="custom-select">
-                                      <option selected
-                                        >Select Rotation Template</option
-                                      >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="rotation-name-3"
-                                      placeholder="Rotation name"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="star-date-3"
-                                      placeholder="Start Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="end-date-3"
-                                      placeholder="End Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <select class="custom-select">
-                                      <option selected
-                                        >Select Rotation Template</option
-                                      >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="rotation-name-4"
-                                      placeholder="Rotation name"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="star-date-4"
-                                      placeholder="Start Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <input
-                                      type="date"
-                                      class="form-control"
-                                      id="end-date-4"
-                                      placeholder="End Date"
-                                    />
-                                  </div>
-                                </div>
-                                <div class="col-12 col-md-3 px-md-2">
-                                  <div class="form-group">
-                                    <select class="custom-select">
-                                      <option selected
-                                        >Select Rotation Template</option
-                                      >
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                    </select>
-                                  </div>
-                                </div>
-                              </div>
+
                               <div class="mt-2">
-                                <button class="btn bg-berry text-white">
+                                <button
+                                  class="btn bg-berry text-white"
+                                  @click.prevent="AddRotation"
+                                >
                                   <span class="fas fa-plus icon-sm mr-1"></span>
                                   Add Rotation
                                 </button>
@@ -488,6 +392,7 @@
                                 <a
                                   href="javascript:void(0)"
                                   class="back_page btn btn-outline-primary  btn-oval"
+                                  @click="backStep"
                                   >back</a
                                 >
                               </div>
@@ -495,6 +400,7 @@
                                 <a
                                   href="javascript:void(0)"
                                   class="next_page btn btn-secondary btn-oval"
+                                  @click="validateAndContinue"
                                   >Next</a
                                 >
                               </div>
@@ -506,11 +412,11 @@
                   </div>
                 </div>
               </div>
+
               <div
                 class="tab-pane fade"
+                :class="{ active: form.step == 3, show: form.step == 3 }"
                 id="customize-tab"
-                role="tabpanel"
-                aria-labelledby="customize-tab"
               >
                 <div class="row">
                   <div class="col-12 col-md pr-md-5 text-center">
@@ -558,6 +464,8 @@
                                       class="custom-file-input"
                                       id="upload-pdf"
                                       aria-describedby="inputGroupFileAddon01"
+                                      ref="performanceFile"
+                                      @change="setFile('performance')"
                                     />
                                     <label
                                       class="custom-file-label"
@@ -598,6 +506,8 @@
                                       class="custom-file-input"
                                       id="upload-csv"
                                       aria-describedby="inputGroupFileAddon01"
+                                      ref="logFile"
+                                      @change="setFile('logs')"
                                     />
                                     <label
                                       class="custom-file-label"
@@ -624,18 +534,20 @@
                                   </p>
                                   <div class="row">
                                     <div class="col-md-6">
-                                      <select class="custom-select">
-                                        <option selected="">Select one</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="2">3</option>
-                                        <option value="2">4</option>
-                                        <option value="2">5</option>
-                                        <option value="2">6</option>
-                                        <option value="2">7</option>
-                                        <option value="2">8</option>
-                                        <option value="2">9</option>
-                                        <option value="2" selected>10</option>
+                                      <select
+                                        class="custom-select"
+                                        v-model="form.quantity"
+                                      >
+                                        <option disabled selected
+                                          >Select Quantity</option
+                                        >
+
+                                        <option
+                                          v-for="num in questions"
+                                          :key="num"
+                                          :value="num"
+                                          >{{ num }}</option
+                                        >
                                       </select>
                                     </div>
                                   </div>
@@ -647,11 +559,14 @@
                               <div class="col-auto">
                                 <a
                                   class="back_page btn btn-outline-primary  btn-oval"
+                                  @click="backStep"
                                   >back</a
                                 >
                               </div>
                               <div class="col-auto">
-                                <a class="next_page btn btn-secondary btn-oval"
+                                <a
+                                  class="next_page btn btn-secondary btn-oval"
+                                  @click="validateAndContinue"
                                   >Next</a
                                 >
                               </div>
@@ -663,11 +578,11 @@
                   </div>
                 </div>
               </div>
+
               <div
                 class="tab-pane fade"
+                :class="{ active: form.step == 4, show: form.step == 4 }"
                 id="onboarding-tab"
-                role="tabpanel"
-                aria-labelledby="onboarding-tab"
               >
                 <div class="row">
                   <div class="col-12 col-md pr-md-5 text-center">
@@ -745,6 +660,80 @@ export default {
     return {
       title: "Subscription",
     };
+  },
+  data() {
+    return {
+      schools: [],
+      programs: [],
+      questions: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      newRotation: {
+        name: "",
+        date_start: "",
+        date_end: "",
+        template: "",
+      },
+      form: {
+        step: 1,
+        first_name: "",
+        last_name: "",
+        email: "",
+        mobile: "",
+        carrier_sms_charge_understanding: false,
+        school_country: "",
+        school_name: "",
+        school_grad_year: "",
+        school_program: "",
+        school_level: "",
+        agree: false,
+        rotations: [
+          { name: "", date_start: "", date_end: "", template: "" },
+          { name: "", date_start: "", date_end: "", template: "" },
+        ],
+        file_absite_performance: null,
+        file_logs: null,
+        quantity: 5,
+      },
+    };
+  },
+  created() {
+    this.$axios.$get("programs.json").then((res) => (this.programs = res));
+  },
+  watch: {
+    "form.school_country": function(val, oldVal) {
+      if (val == "US")
+        this.$axios.$get("schools.json").then((res) => (this.schools = res));
+    },
+  },
+  computed: {
+    programsSorted() {
+      return this.programs.sort();
+    },
+  },
+  methods: {
+    backStep() {
+      this.form.step = this.form.step == 1 ? 1 : this.form.step - 1;
+    },
+    validateAndContinue() {
+      this.form.step++;
+    },
+    AddRotation() {
+      this.form.rotations.push({
+        name: "",
+        date_start: "",
+        date_end: "",
+        template: "",
+      });
+    },
+    setFile(type) {
+      switch (type) {
+        case "performance":
+          this.form.file_absite_performance = this.$refs.performanceFile.files[0];
+          break;
+        case "logs":
+          this.form.file_logs = this.$refs.logFile.files[0];
+          break;
+      }
+    },
   },
 };
 </script>

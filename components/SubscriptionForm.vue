@@ -12,7 +12,10 @@
           </p>
         </div>
         <div class="col-12 col-md-7 mt-4 mt-md-0">
-          <form @submit.prevent="sendSubscription" class="needs-validation" :class="{ "was-validated":sent }">
+          <form
+            @submit.prevent="sendSubscription"
+            class="needs-validation"
+          >
             <div class="row">
               <div class="col-12 col-lg">
                 <div class="form-group mb-lg-0">
@@ -37,7 +40,7 @@
                     placeholder="your@email.com"
                     required
                     v-model="form.email"
-                    :class="{ disabled: sent }"
+                    :class="{ 'is-invalid': error }"
                     :disabled="sent"
                     :readonly="sent"
                   />
@@ -58,7 +61,6 @@
   </section>
 </template>
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -68,12 +70,12 @@ export default {
       },
       sent: false,
       success: false,
-      error: false
+      error: false,
     };
   },
   methods: {
     sendSubscription() {
-      if (this.form.name == "" || this.form.email == "" || !validEmail()) {
+      if (this.form.name == "" || this.form.email == "" || !this.validEmail()) {
         this.error = true;
         return false;
       }
@@ -89,10 +91,10 @@ export default {
 
       this.sent = true;
     },
-    validEmail: function () {
+    validEmail: function() {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(this.form.email);
-    }
+    },
   },
 };
 </script>
