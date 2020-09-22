@@ -12,10 +12,7 @@
           </p>
         </div>
         <div class="col-12 col-md-7 mt-4 mt-md-0">
-          <form
-            @submit.prevent="sendSubscription"
-            class="needs-validation"
-          >
+          <form @submit.prevent="sendSubscription" class="needs-validation">
             <div class="row">
               <div class="col-12 col-lg">
                 <div class="form-group mb-lg-0">
@@ -80,8 +77,8 @@ export default {
         return false;
       }
 
-      axios
-        .post("https://hookb.in/YVGPB0qJBjIo77ym39ll", this.form)
+      this.$axios
+        .$post("https://hookb.in/YVGPB0qJBjIo77ym39ll", this.form)
         .then((res) => {
           this.success = true;
         })
