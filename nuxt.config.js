@@ -138,4 +138,8 @@ export default {
           : "Bearer dirGtx0kKJxrpmPzDGnITeQNdGt7yG1mg8zU1eSKvPPkWeREt74J3n6zzHroHROFh37yQ93Jm6nQrzdA",
     },
   },
+  plugins: ["~/plugins/vee-validate.js"],
+  build: {
+    transpile: ["vee-validate/dist/rules"],
+  },
 };

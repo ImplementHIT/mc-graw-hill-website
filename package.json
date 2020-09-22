@@ -23,7 +23,8 @@
   "homepage": "https://github.com/ImplementHIT/mc-graw-hill-website#readme",
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vee-validate": "^3.4.0"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",

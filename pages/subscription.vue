@@ -66,217 +66,317 @@
                       <div class="split-berry my-4"></div>
                       <div class="row align-items-center text-left">
                         <div class="col-12 mt-3 mt-md-0">
-                          <form>
-                            <div class="row my-4">
-                              <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="first-name" class=""
-                                    >First Name</label
-                                  >
-                                  <div>
+                          <ValidationObserver ref="stepOne">
+                            <form>
+                              <div class="row my-4">
+                                <div class="col-12 col-md-6">
+                                  <div class="form-group">
+                                    <label for="first-name" class=""
+                                      >First Name</label
+                                    >
+                                    <div>
+                                      <ValidationProvider
+                                        v-slot="{ classes, errors }"
+                                        name="First Name"
+                                        rules="required|alpha"
+                                      >
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          :class="classes"
+                                          id="first-name"
+                                          v-model="form.first_name"
+                                        />
+                                        <span>{{ errors[0] }}</span>
+                                      </ValidationProvider>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 ">
+                                  <div class="form-group">
+                                    <label for="last-name" class=""
+                                      >Last Name</label
+                                    >
+                                    <div>
+                                      <ValidationProvider
+                                        v-slot="{ classes, errors }"
+                                        name="Last Name"
+                                        rules="required|alpha"
+                                      >
+                                        <input
+                                          type="text"
+                                          class="form-control"
+                                          :class="classes"
+                                          id="last-name"
+                                          v-model="form.last_name"
+                                        />
+                                        <span>{{ errors[0] }}</span>
+                                      </ValidationProvider>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 ">
+                                  <div class="form-group">
+                                    <label for="email" class="">Email</label>
+                                    <div>
+                                      <ValidationProvider
+                                        v-slot="{ classes, errors }"
+                                        name="Email"
+                                        rules="required|email"
+                                      >
+                                        <input
+                                          type="email"
+                                          class="form-control"
+                                          :class="classes"
+                                          id="email"
+                                          v-model="form.email"
+                                        />
+                                        <span>{{ errors[0] }}</span>
+                                      </ValidationProvider>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 col-md-6 ">
+                                  <div class="form-group">
+                                    <label for="Phone" class=""
+                                      >Mobile Phone</label
+                                    >
+                                    <div>
+                                      <ValidationProvider
+                                        name="Mobile Phone"
+                                        :rules="{
+                                          required: true,
+                                          regex: /^[2-9]\d{2}[2-9]\d{2}\d{4}$/,
+                                        }"
+                                        v-slot="{ classes, errors }"
+                                      >
+                                        <input
+                                          type="number"
+                                          class="form-control"
+                                          :class="classes"
+                                          id="phone"
+                                          v-model="form.mobile"
+                                        />
+                                        <span>{{ errors[0] }}</span>
+                                      </ValidationProvider>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <div class="custom-control custom-checkbox">
                                     <input
-                                      type="text"
-                                      class="form-control"
-                                      id="first-name"
-                                      v-model="form.first_name"
+                                      type="checkbox"
+                                      class="custom-control-input"
+                                      id="sms_charge"
+                                      value="true"
+                                      v-model="
+                                        form.carrier_sms_charge_understanding
+                                      "
                                     />
+                                    <label
+                                      class="custom-control-label"
+                                      for="sms_charge"
+                                      >Confirm understanding that charges may
+                                      apply for SMS from their carrier</label
+                                    >
+                                    <span
+                                      class="d-block text-danger"
+                                      v-if="errors.sms_charge != ''"
+                                      >{{ errors.sms_charge }}</span
+                                    >
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-12 col-md-6 ">
+
+                              <!-- split -->
+                              <div class="dropdown-divider my-5"></div>
+
+                              <div class="bg-light p-3">
                                 <div class="form-group">
-                                  <label for="last-name" class=""
-                                    >Last Name</label
+                                  <label
+                                    >US or Foreign Medical School
+                                    Graduate</label
                                   >
-                                  <div>
-                                    <input
-                                      type="text"
-                                      class="form-control"
-                                      id="last-name"
-                                      v-model="form.last_name"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-12 col-md-6 ">
-                                <div class="form-group">
-                                  <label for="email" class="">Email</label>
-                                  <div>
-                                    <input
-                                      type="email"
-                                      class="form-control"
-                                      id="email"
-                                      v-model="form.email"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-12 col-md-6 ">
-                                <div class="form-group">
-                                  <label for="Phone" class=""
-                                    >Mobile Phone</label
+                                  <ValidationProvider
+                                    v-slot="{ classes, errors }"
+                                    name="Medical School"
+                                    rules="required"
+                                    vid="country"
                                   >
-                                  <div>
+                                    <select
+                                      class="custom-select"
+                                      :class="classes"
+                                      v-model="form.school_country"
+                                    >
+                                      <option disabled selected
+                                        >Select one</option
+                                      >
+                                      <option value="US"
+                                        >US Medical School Graduate</option
+                                      >
+                                      <option value="Foreign"
+                                        >Foreign Medical School Graduate</option
+                                      >
+                                    </select>
+                                    <span>{{ errors[0] }}</span>
+                                  </ValidationProvider>
+                                </div>
+
+                                <div
+                                  class="form-group"
+                                  v-if="form.school_country == 'US'"
+                                >
+                                  <label>Select your School</label>
+                                  <ValidationProvider
+                                    v-slot="{ classes, errors }"
+                                    name="School"
+                                    rules="required_if:country,US"
+                                  >
+                                    <select
+                                      class="custom-select"
+                                      :class="classes"
+                                      v-model="form.school_name"
+                                    >
+                                      <option disabled selected
+                                        >Select school</option
+                                      >
+                                      <option
+                                        v-for="(school, i) in schools"
+                                        :value="school"
+                                        :key="i"
+                                        >{{ school }}</option
+                                      >
+                                    </select>
+                                    <span>{{ errors[0] }}</span>
+                                  </ValidationProvider>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="year"
+                                    >Medical school graduation year</label
+                                  >
+                                  <ValidationProvider
+                                    v-slot="{ classes, errors }"
+                                    name="Grad Year"
+                                    rules="required|min_value:1980"
+                                  >
                                     <input
                                       type="number"
-                                      class="form-control"
-                                      id="phone"
-                                      v-model="form.mobile"
+                                      class="form-control col-3"
+                                      :class="classes"
+                                      min="1980"
+                                      value="1980"
+                                      id="Year"
+                                      v-model="form.school_grad_year"
                                     />
+                                    <span>{{ errors[0] }}</span>
+                                  </ValidationProvider>
+                                </div>
+
+                                <div class="form-group">
+                                  <label
+                                    >Select your general surgery program</label
+                                  >
+                                  <ValidationProvider
+                                    v-slot="{ classes, errors }"
+                                    name="Surgery Program"
+                                    rules="required"
+                                  >
+                                    <select
+                                      class="custom-select"
+                                      :class="classes"
+                                      v-model="form.school_program"
+                                    >
+                                      <option disabled selected
+                                        >Select Program</option
+                                      >
+                                      <option
+                                        v-for="(program, i) in programs"
+                                        :value="program"
+                                        :key="i"
+                                        >{{ program }}</option
+                                      >
+                                    </select>
+                                    <span>{{ errors[0] }}</span>
+                                  </ValidationProvider>
+                                </div>
+
+                                <div class="form-group">
+                                  <label>Select your PGY level</label>
+                                  <div>
+                                    <ValidationProvider
+                                      v-slot="{ classes, errors }"
+                                      name="PGY level"
+                                      rules="required"
+                                    >
+                                      <select
+                                        class="form-control custom-select col-3"
+                                        :class="classes"
+                                        v-model="form.school_level"
+                                      >
+                                        <option disabled selected
+                                          >Select one</option
+                                        >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                      </select>
+                                      <span>{{ errors[0] }}</span>
+                                    </ValidationProvider>
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-12">
-                                <div class="custom-control custom-checkbox">
-                                  <input
-                                    type="checkbox"
-                                    class="custom-control-input"
-                                    id="agree"
-                                    v-model="
-                                      form.carrier_sms_charge_understanding
-                                    "
-                                  />
-                                  <label
-                                    class="custom-control-label"
-                                    for="agree"
-                                    >Confirm understanding that charges may
-                                    apply for SMS from their carrier</label
-                                  >
-                                </div>
-                              </div>
-                            </div>
-
-                            <!-- split -->
-                            <div class="dropdown-divider my-5"></div>
-
-                            <div class="bg-light p-3">
-                              <div class="form-group">
-                                <label
-                                  >US or Foreign Medical School Graduate</label
-                                >
-                                <select
-                                  class="custom-select"
-                                  v-model="form.school_country"
-                                >
-                                  <option disabled selected>Select one</option>
-                                  <option value="US"
-                                    >US Medical School Graduate</option
-                                  >
-                                  <option value="Foreign"
-                                    >Foreign Medical School Graduate</option
-                                  >
-                                </select>
-                              </div>
-
-                              <div
-                                class="form-group"
-                                v-if="form.school_country == 'US'"
-                              >
-                                <label>Select your School</label>
-                                <select
-                                  class="custom-select"
-                                  v-model="form.school_name"
-                                >
-                                  <option disabled selected
-                                    >Select school</option
-                                  >
-                                  <option
-                                    v-for="(school, i) in schools"
-                                    :value="school"
-                                    :key="i"
-                                    >{{ school }}</option
-                                  >
-                                </select>
-                              </div>
-
-                              <div class="form-group">
-                                <label for="year"
-                                  >Medical school graduation year</label
-                                >
+                              <div class="custom-control custom-checkbox my-4">
                                 <input
-                                  type="number"
-                                  class="form-control col-3"
-                                  min="1980"
-                                  value="1980"
-                                  id="Year"
-                                  v-model="form.school_grad_year"
+                                  type="checkbox"
+                                  class="custom-control-input"
+                                  id="agree-eula"
+                                  value="true"
+                                  v-model="form.agree"
                                 />
-                              </div>
-
-                              <div class="form-group">
                                 <label
-                                  >Select your general surgery program</label
+                                  class="custom-control-label"
+                                  for="agree-eula"
+                                  >Agree to the
+                                  <a
+                                    href="https://www.dropbox.com/s/9zuritv63ke6pel/EULA%20McGraw%20Hill.docx?dl=0"
+                                    target="_blank"
+                                    class="color-berry color-secondary-hover transition-03"
+                                    >End User License Agreement (EULA)</a
+                                  ></label
                                 >
-                                <select
-                                  class="custom-select"
-                                  v-model="form.school_program"
+                                <span
+                                  class="d-block text-danger"
+                                  v-if="errors.agree != ''"
+                                  >{{ errors.agree }}</span
                                 >
-                                  <option selected>Select one</option>
-                                  <option value="1">option 1</option>
-                                  <option value="2">option 2</option>
-                                </select>
                               </div>
 
-                              <div class="form-group">
-                                <label>Select your PGY level</label>
-                                <div>
-                                  <select
-                                    class="form-control custom-select col-3"
-                                    v-model="form.school_level"
+                              <div class="bg-berry-light p-3 mt-4">
+                                {{ this.form.plan }} Month License
+                                <span class="color-berry headline-title-sm ml-2"
+                                  >${{ planPrice }}</span
+                                >
+                              </div>
+                              <div class="row mt-5 justify-content-center">
+                                <div class="col-auto">
+                                  <a
+                                    href="javascript:void(0)"
+                                    @click.prevent="validateAndContinue"
+                                    class="next_page btn-lg button btn-secondary btn-oval pointer"
+                                    >Next</a
                                   >
-                                    <option disabled selected
-                                      >Select one</option
-                                    >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                  </select>
                                 </div>
                               </div>
-                            </div>
-                            <div class="custom-control custom-checkbox my-4">
-                              <input
-                                type="checkbox"
-                                class="custom-control-input"
-                                id="agree-eula"
-                              />
-                              <label
-                                class="custom-control-label"
-                                for="agree-eula"
-                                >Agree to the
-                                <a
-                                  href="https://www.dropbox.com/s/9zuritv63ke6pel/EULA%20McGraw%20Hill.docx?dl=0"
-                                  target="_blank"
-                                  class="color-berry color-secondary-hover transition-03"
-                                  >End User License Agreement (EULA)</a
-                                ></label
-                              >
-                            </div>
-
-                            <div class="bg-berry-light p-3 mt-4">
-                              {{ this.form.plan }} Month License
-                              <span class="color-berry headline-title-sm ml-2"
-                                >${{ planPrice }}</span
-                              >
-                            </div>
-                            <div class="row mt-5 justify-content-center">
-                              <div class="col-auto">
-                                <a
-                                  href="javascript:void(0)"
-                                  @click.prevent="validateAndContinue"
-                                  class="next_page btn-lg button btn-secondary btn-oval pointer"
-                                  >Next</a
-                                >
-                              </div>
-                            </div>
-                          </form>
+                            </form>
+                          </ValidationObserver>
                         </div>
                       </div>
                     </form>
@@ -695,10 +795,13 @@ export default {
         file_logs: null,
         quantity: 5,
       },
+      errors: {
+        sms_charge: "",
+        agree: "",
+      },
     };
   },
   created() {
-    console.log(process.env.api);
     this.form.plan =
       typeof this.$route.query.plan !== "undefined" &&
       this.plans.includes(parseInt(this.$route.query.plan))
@@ -707,8 +810,6 @@ export default {
 
     this.$axios.$get("programs.json").then((res) => (this.programs = res));
     this.$axios.$get("schools.json").then((res) => (this.schools = res));
-
-    
   },
   computed: {
     planPrice() {
@@ -731,12 +832,30 @@ export default {
       return this.programs.sort();
     },
   },
+  watch: {
+    "form.carrier_sms_charge_understanding": function(val, oldVal) {
+      if (val) this.errors.sms_charge = "";
+    },
+    "form.agree": function(val, oldVal) {
+      if (val) this.errors.agree = "";
+    },
+  },
   methods: {
     backStep() {
       this.form.step = this.form.step == 1 ? 1 : this.form.step - 1;
     },
     validateAndContinue() {
-      this.form.step++;
+      switch (this.form.step) {
+        case 2:
+          this.validateSecondStep();
+          break;
+        case 3:
+          this.validateThirdStep();
+          break;
+        default:
+          this.validateFirstStep();
+          break;
+      }
     },
     AddRotation() {
       this.form.rotations.push({
@@ -755,6 +874,35 @@ export default {
           this.form.file_logs = this.$refs.logFile.files[0];
           break;
       }
+    },
+    validateFirstStep() {
+      this.$refs.stepOne.validate().then((success) => {
+        if (!this.form.carrier_sms_charge_understanding)
+          this.errors.sms_charge = "Please confirm SMS carrier charge";
+        if (!this.form.agree) this.errors.agree = "You need to agree our EULA";
+
+        console.log(
+          success && this.form.agree && this.form.sms_charge,
+          success,
+          this.form.agree,
+          this.form.carrier_sms_charge_understanding
+        );
+
+        if (
+          success &&
+          this.form.agree &&
+          this.form.carrier_sms_charge_understanding
+        )
+          this.form.step++;
+      });
+
+      return false;
+    },
+    validateSecondStep() {
+      this.form.step++;
+    },
+    validateThirdStep() {
+      this.form.step++;
     },
   },
 };
