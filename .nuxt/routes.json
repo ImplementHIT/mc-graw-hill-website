@@ -3,12 +3,14 @@
     "name": "subscription",
     "path": "/subscription",
     "component": "D:\\\\Sites\\\\McGrawHill\\\\Code\\\\mc-graw-hill-website\\\\pages\\\\subscription.vue",
-    "chunkName": "pages/subscription"
+    "chunkName": "pages/subscription",
+    "_name": "_6b9d9cb0"
   },
   {
     "name": "index",
     "path": "/",
     "component": "D:\\\\Sites\\\\McGrawHill\\\\Code\\\\mc-graw-hill-website\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_c69b4162"
   }
 ]

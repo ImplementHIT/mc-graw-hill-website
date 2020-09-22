@@ -119,7 +119,8 @@ export default {
   },
   css: ["@/css/main.css"],
   components: true,
-  modules: [
-    '@nuxtjs/axios',
-  ],
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: process.env.NODE_ENV == 'production' ? 'http://mypath.implementhit.net' : "http://localhost:3333",
+  },
 };
