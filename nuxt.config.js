@@ -2,7 +2,7 @@ export default {
   env: {
     api:
       process.env.NODE_ENV == "production"
-        ? "https://engage.implementhit.net/api"
+        ? "https://engage.implementhit.net/api/"
         : "http://localhost:8000/api/",
   },
   head: {
