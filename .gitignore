@@ -1,7 +1,6 @@
 # dependencies
 node_modules
 package-lock.json
-.nuxt
 
 # logs
 npm-debug.log
@@ -9,6 +8,7 @@ yarn-error.log
 
 # other
 .nuxt
+.nuxt/*.js
 dist
 .vscode
 .idea

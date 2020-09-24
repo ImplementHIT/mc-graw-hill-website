@@ -21,28 +21,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a href="#path-surgery" class="nav-link">Path-Surgery</a>
+            <nuxt-link to="/#path-surgery" class="nav-link">Path-Surgery</nuxt-link>
           </li>
           <li class="nav-item">
-            <a href="#mcgraw-hill-medical-content" class="nav-link"
-              >McGraw Hill Medical Content</a
+            <nuxt-link to="/#mcgraw-hill-medical-content" class="nav-link"
+              >McGraw Hill Medical Content</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <a href="#rotation" class="nav-link">Rotation</a>
+            <nuxt-link to="/#rotation" class="nav-link">Rotation</nuxt-link>
           </li>
           <li class="nav-item">
-            <a href="#absite-Performance" class="nav-link"
-              >ABSITE Performance</a
+            <nuxt-link to="/#absite-Performance" class="nav-link"
+              >ABSITE Performance</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <a href="#advanced-quiz-functionality" class="nav-link"
-              >Advanced Quiz</a
+            <nuxt-link to="/#advanced-quiz-functionality" class="nav-link"
+              >Advanced Quiz</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <a href="#subscription" class="nav-link">Subscription</a>
+            <nuxt-link to="/#subscription" class="nav-link">Subscription</nuxt-link>
           </li>
         </ul>
       </div>

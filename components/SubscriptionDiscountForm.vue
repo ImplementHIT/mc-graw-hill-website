@@ -18,11 +18,12 @@
           <div class="discount-message text-white text-center">
             <div class="wrap-message">
               <h3 class="headline-title-sm color-secondary">
-                Thanks for subscribe!
+                Thank you!
               </h3>
               <p>
-                Use your email <strong>{{ form.email }}</strong> when enrolling
-                to get your discount!
+                Use your email <strong>{{ form.email }}</strong> when you
+                purchase a new subscription, and you will automatically receive
+                $25 off the listed price.
               </p>
             </div>
           </div>
@@ -59,8 +60,15 @@
               </div>
               <div class="col-12 col-lg-auto">
                 <div>
-                  <button type="submit" class="btn-lg btn-secondary btn-oval">
+                  <button
+                    type="submit"
+                    class="btn-lg btn-secondary btn-oval"
+                    :disabled="sending"
+                  >
                     Send
+                    <div class="spinner-border text-light" role="status" v-if="sending">
+                      <span class="sr-only">Loading...</span>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -79,6 +87,7 @@ export default {
         name: "",
         email: "",
       },
+      sending: false,
       sent: false,
       success: false,
       error: false,
@@ -86,6 +95,7 @@ export default {
   },
   methods: {
     sendSubscription() {
+      this.sending = true;
       if (this.form.name == "" || this.form.email == "" || !this.validEmail()) {
         this.error = true;
         return false;
@@ -98,6 +108,7 @@ export default {
         })
         .finally(() => {
           this.sent = true;
+          this.sending = false;
         });
 
       this.sent = true;
