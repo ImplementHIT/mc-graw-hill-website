@@ -24,69 +24,69 @@
     "description": "Auto imported from components/SubscriptionDiscountForm.vue"
   },
   "SectionAbsitePerformance": {
-    "description": "Auto imported from components/sections/SectionAbsitePerformance.vue"
+    "description": "Auto imported from components/index/SectionAbsitePerformance.vue"
   },
   "LazySectionAbsitePerformance": {
-    "description": "Auto imported from components/sections/SectionAbsitePerformance.vue"
+    "description": "Auto imported from components/index/SectionAbsitePerformance.vue"
   },
   "SectionAdvanceQuiz": {
-    "description": "Auto imported from components/sections/SectionAdvanceQuiz.vue"
+    "description": "Auto imported from components/index/SectionAdvanceQuiz.vue"
   },
   "LazySectionAdvanceQuiz": {
-    "description": "Auto imported from components/sections/SectionAdvanceQuiz.vue"
-  },
-  "SectionFormStepOne": {
-    "description": "Auto imported from components/sections/SectionFormStepOne.vue"
-  },
-  "LazySectionFormStepOne": {
-    "description": "Auto imported from components/sections/SectionFormStepOne.vue"
-  },
-  "SectionFormStepThree": {
-    "description": "Auto imported from components/sections/SectionFormStepThree.vue"
-  },
-  "LazySectionFormStepThree": {
-    "description": "Auto imported from components/sections/SectionFormStepThree.vue"
-  },
-  "SectionFormStepTwo": {
-    "description": "Auto imported from components/sections/SectionFormStepTwo.vue"
-  },
-  "LazySectionFormStepTwo": {
-    "description": "Auto imported from components/sections/SectionFormStepTwo.vue"
-  },
-  "SectionFormThankYou": {
-    "description": "Auto imported from components/sections/SectionFormThankYou.vue"
-  },
-  "LazySectionFormThankYou": {
-    "description": "Auto imported from components/sections/SectionFormThankYou.vue"
+    "description": "Auto imported from components/index/SectionAdvanceQuiz.vue"
   },
   "SectionMedicalContent": {
-    "description": "Auto imported from components/sections/SectionMedicalContent.vue"
+    "description": "Auto imported from components/index/SectionMedicalContent.vue"
   },
   "LazySectionMedicalContent": {
-    "description": "Auto imported from components/sections/SectionMedicalContent.vue"
+    "description": "Auto imported from components/index/SectionMedicalContent.vue"
   },
   "SectionPathSurgery": {
-    "description": "Auto imported from components/sections/SectionPathSurgery.vue"
+    "description": "Auto imported from components/index/SectionPathSurgery.vue"
   },
   "LazySectionPathSurgery": {
-    "description": "Auto imported from components/sections/SectionPathSurgery.vue"
+    "description": "Auto imported from components/index/SectionPathSurgery.vue"
   },
   "SectionSubscriptions": {
-    "description": "Auto imported from components/sections/SectionSubscriptions.vue"
+    "description": "Auto imported from components/index/SectionSubscriptions.vue"
   },
   "LazySectionSubscriptions": {
-    "description": "Auto imported from components/sections/SectionSubscriptions.vue"
+    "description": "Auto imported from components/index/SectionSubscriptions.vue"
   },
   "SectionYourRotation": {
-    "description": "Auto imported from components/sections/SectionYourRotation.vue"
+    "description": "Auto imported from components/index/SectionYourRotation.vue"
   },
   "LazySectionYourRotation": {
-    "description": "Auto imported from components/sections/SectionYourRotation.vue"
+    "description": "Auto imported from components/index/SectionYourRotation.vue"
   },
   "Subscription": {
-    "description": "Auto imported from components/sections/Subscription.vue"
+    "description": "Auto imported from components/index/Subscription.vue"
   },
   "LazySubscription": {
-    "description": "Auto imported from components/sections/Subscription.vue"
+    "description": "Auto imported from components/index/Subscription.vue"
+  },
+  "SectionFormStepOne": {
+    "description": "Auto imported from components/subscription/SectionFormStepOne.vue"
+  },
+  "LazySectionFormStepOne": {
+    "description": "Auto imported from components/subscription/SectionFormStepOne.vue"
+  },
+  "SectionFormStepThree": {
+    "description": "Auto imported from components/subscription/SectionFormStepThree.vue"
+  },
+  "LazySectionFormStepThree": {
+    "description": "Auto imported from components/subscription/SectionFormStepThree.vue"
+  },
+  "SectionFormStepTwo": {
+    "description": "Auto imported from components/subscription/SectionFormStepTwo.vue"
+  },
+  "LazySectionFormStepTwo": {
+    "description": "Auto imported from components/subscription/SectionFormStepTwo.vue"
+  },
+  "SectionFormThankYou": {
+    "description": "Auto imported from components/subscription/SectionFormThankYou.vue"
+  },
+  "LazySectionFormThankYou": {
+    "description": "Auto imported from components/subscription/SectionFormThankYou.vue"
   }
 }
