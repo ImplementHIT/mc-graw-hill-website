@@ -317,7 +317,7 @@ export default {
       .then((res) => (this.programs = res.sort()));
 
     this.$axios.$get("schools.json").then((res) => (this.schools = res.sort()));
-    this.dummy();
+    //this.dummy();
   },
   watch: {
     "form.carrier_sms_charge_understanding": function(val, oldVal) {
