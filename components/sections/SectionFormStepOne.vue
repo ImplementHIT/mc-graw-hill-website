@@ -14,7 +14,7 @@
           <div class="split-berry my-4"></div>
           <div class="row align-items-center text-left">
             <div class="col-12 mt-3 mt-md-0">
-              <ValidationObserver ref="stepOne">
+              <ValidationObserver ref="form">
                 <form>
                   <div class="row my-4">
                     <div class="col-12 col-md-6">
@@ -275,12 +275,8 @@
                     >
                   </div>
 
-                  <div class="bg-berry-light p-3 mt-4">
-                    {{ this.form.plan.id }} Month License
-                    <span class="color-berry headline-title-sm ml-2"
-                      >${{ planPrice }}</span
-                    >
-                  </div>
+                  <PlanInformationAlert :form="form" />
+
                   <div class="row mt-5 justify-content-center">
                     <div class="col-auto">
                       <a
@@ -321,11 +317,7 @@ export default {
       .then((res) => (this.programs = res.sort()));
 
     this.$axios.$get("schools.json").then((res) => (this.schools = res.sort()));
-  },
-  computed: {
-    planPrice() {
-      return this.$store.state.planPrice;
-    },
+    this.dummy();
   },
   watch: {
     "form.carrier_sms_charge_understanding": function(val, oldVal) {
@@ -336,8 +328,21 @@ export default {
     },
   },
   methods: {
+    dummy() {
+      this.form.first_name = "Julio";
+      this.form.last_name = "Solis";
+      this.form.email = "js@implementhit.com";
+      this.form.mobile = "3186018448";
+      this.form.carrier_sms_charge_understanding = true;
+      this.form.school_country = "Foreign";
+      this.form.school_name = "";
+      this.form.school_grad_year = "1995";
+      this.form.school_program = "AMITA Health Program";
+      this.form.school_level = 5;
+      this.form.agree = true;
+    },
     validate() {
-      this.$refs.stepOne.validate().then((success) => {
+      this.$refs.form.validate().then((success) => {
         if (!this.form.carrier_sms_charge_understanding)
           this.errors.sms_charge = "Please confirm SMS carrier charge";
         if (!this.form.agree) this.errors.agree = "You need to agree our EULA";

@@ -1,4 +1,5 @@
 export { default as Nav } from '../..\\components\\Nav.vue'
+export { default as PlanInformationAlert } from '../..\\components\\PlanInformationAlert.vue'
 export { default as Sidebar } from '../..\\components\\Sidebar.vue'
 export { default as SubscriptionDiscountForm } from '../..\\components\\SubscriptionDiscountForm.vue'
 export { default as SectionAbsitePerformance } from '../..\\components\\sections\\SectionAbsitePerformance.vue'
@@ -14,6 +15,7 @@ export { default as SectionYourRotation } from '../..\\components\\sections\\Sec
 export { default as Subscription } from '../..\\components\\sections\\Subscription.vue'
 
 export const LazyNav = import('../..\\components\\Nav.vue' /* webpackChunkName: "components_Nav" */).then(c => c.default || c)
+export const LazyPlanInformationAlert = import('../..\\components\\PlanInformationAlert.vue' /* webpackChunkName: "components_PlanInformationAlert" */).then(c => c.default || c)
 export const LazySidebar = import('../..\\components\\Sidebar.vue' /* webpackChunkName: "components_Sidebar" */).then(c => c.default || c)
 export const LazySubscriptionDiscountForm = import('../..\\components\\SubscriptionDiscountForm.vue' /* webpackChunkName: "components_SubscriptionDiscountForm" */).then(c => c.default || c)
 export const LazySectionAbsitePerformance = import('../..\\components\\sections\\SectionAbsitePerformance.vue' /* webpackChunkName: "components_sections/SectionAbsitePerformance" */).then(c => c.default || c)

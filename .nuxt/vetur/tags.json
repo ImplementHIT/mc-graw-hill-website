@@ -5,6 +5,12 @@
   "LazyNav": {
     "description": "Auto imported from components/Nav.vue"
   },
+  "PlanInformationAlert": {
+    "description": "Auto imported from components/PlanInformationAlert.vue"
+  },
+  "LazyPlanInformationAlert": {
+    "description": "Auto imported from components/PlanInformationAlert.vue"
+  },
   "Sidebar": {
     "description": "Auto imported from components/Sidebar.vue"
   },

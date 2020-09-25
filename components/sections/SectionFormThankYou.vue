@@ -41,7 +41,12 @@
 
                 <div class="row mt-5 justify-content-center">
                   <div class="col-auto">
-                    <a href="#" class="btn-lg btn-secondary btn-oval">Finish</a>
+                    <a
+                      href="#"
+                      @click.prevent="complete"
+                      class="btn-lg btn-secondary btn-oval"
+                      >Finish</a
+                    >
                   </div>
                 </div>
               </form>
@@ -56,6 +61,16 @@
 export default {
   props: {
     form: Object,
+  },
+  methods: {
+    complete() {
+      console.log(this.form);
+      this.$axios
+        .$post(process.env.api + "enrollment", { form: this.form })
+        .then((res) => {
+          console.log(res);
+        });
+    },
   },
 };
 </script>

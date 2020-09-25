@@ -22,54 +22,95 @@
                 <div class="my-4">
                   <label class="headline-title-xs color-berry">Rotations</label>
 
-                  <div class="row" v-for="(rot, i) in form.rotations" :key="i">
-                    <div class="col-12 col-md-3 px-md-2">
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="rotation-name-1"
-                          placeholder="Rotation name"
-                          v-model="form.rotations[i].name"
-                        />
+                  <ValidationObserver ref="form">
+                    <div
+                      class="row"
+                      v-for="(rot, i) in form.rotations"
+                      :key="i"
+                    >
+                      <div class="col-12 col-md-3 px-md-2">
+                        <div class="form-group">
+                          <ValidationProvider
+                            v-slot="{ classes, errors }"
+                            :name="'Name' + (i + 1)"
+                            rules="required"
+                          >
+                            <input
+                              type="text"
+                              class="form-control"
+                              :class="classes"
+                              id="rotation-name-1"
+                              placeholder="Rotation name"
+                              v-model="form.rotations[i].name"
+                            />
+                            <span class="text-danger">{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-3 px-md-2">
+                        <div class="form-group">
+                          <ValidationProvider
+                            v-slot="{ classes, errors }"
+                            :name="'Start Date' + (i + 1)"
+                            rules="required"
+                          >
+                            <input
+                              type="date"
+                              class="form-control"
+                              :class="classes"
+                              id="star-date-1"
+                              placeholder="Start Date"
+                              v-model="form.rotations[i].date_start"
+                            />
+                            <span class="text-danger">{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-3 px-md-2">
+                        <div class="form-group">
+                          <ValidationProvider
+                            v-slot="{ classes, errors }"
+                            :name="'Finish Date' + (i + 1)"
+                            rules="required"
+                          >
+                            <input
+                              type="date"
+                              class="form-control"
+                              :class="classes"
+                              id="end-date-1"
+                              placeholder="End Date"
+                              v-model="form.rotations[i].date_end"
+                            />
+                            <span class="text-danger">{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-3 px-md-2">
+                        <div class="form-group">
+                          <ValidationProvider
+                            v-slot="{ classes, errors }"
+                            :name="'School' + (i + 1)"
+                            rules="required"
+                          >
+                            <select
+                              class="custom-select"
+                              :class="classes"
+                              v-model="form.rotations[i].template"
+                            >
+                              <option disabled selected>Select Template</option>
+                              <option
+                                v-for="rotation in rotations"
+                                :key="rotation.id"
+                              >
+                                {{ rotation.name }}
+                              </option>
+                            </select>
+                            <span class="text-danger">{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                      <div class="form-group">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="star-date-1"
-                          placeholder="Start Date"
-                          v-model="form.rotations[i].date_start"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3 px-md-2">
-                      <div class="form-group">
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="end-date-1"
-                          placeholder="End Date"
-                          v-model="form.rotations[i].date_end"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-3 px-md-2">
-                      <div class="form-group">
-                        <select
-                          class="custom-select"
-                          v-model="form.rotations[i].template"
-                        >
-                          <option disabled selected>Select Template</option>
-                          <option>Trauma</option>
-                          <option>SICU</option>
-                          <option>Burns</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
+                  </ValidationObserver>
 
                   <div class="mt-2">
                     <button
@@ -83,10 +124,7 @@
 
                   <div class="dropdown-divider my-4"></div>
 
-                  <div class="bg-berry-light p-3">
-                    12 Month License
-                    <span class="color-berry headline-title-sm ml-2">$299</span>
-                  </div>
+                  <PlanInformationAlert :form="form" />
                 </div>
 
                 <div class="row mt-5 justify-content-center">
@@ -94,7 +132,7 @@
                     <a
                       href="javascript:void(0)"
                       class="back_page btn btn-outline-primary  btn-oval"
-                      @click="back"
+                      @click="$emit('back')"
                       >back</a
                     >
                   </div>
@@ -121,6 +159,17 @@ export default {
   props: {
     form: Object,
   },
+  data() {
+    return {
+      rotations: [],
+      errors: [],
+    };
+  },
+  created() {
+    this.$axios.$get(process.env.api + "rotations", this.form).then((res) => {
+      this.rotations = res;
+    });
+  },
   methods: {
     back() {
       this.$emit("back");
@@ -134,7 +183,10 @@ export default {
       });
     },
     validate() {
-      this.form.step++;
+      this.$refs.form.validate().then((success) => {
+        if (success) this.form.step++;
+        else this.errors.push("Please confirm SMS carrier charge");
+      });
     },
   },
 };
