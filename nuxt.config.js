@@ -125,15 +125,7 @@ export default {
   },
   css: ["@/css/main.css"],
   components: true,
-  modules: [
-    "@nuxtjs/axios",
-    [
-      "nuxt-stripe-module",
-      {
-        publishableKey: "YOUR_STRIPE_PUBLISHABLE_KEY",
-      },
-    ],
-  ],
+  modules: ["@nuxtjs/axios"],
   axios: {
     baseURL:
       process.env.NODE_ENV == "production"

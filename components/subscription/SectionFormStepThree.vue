@@ -8,7 +8,7 @@
       <div class="col-12 col-md pr-md-5 text-center">
         <form class="mx-auto subscription-form bg-white color-dark">
           <h2 class="headline-title-sm m-0 color-berry">
-            Personilization
+            Personalization
           </h2>
           <!-- split -->
           <div class="split-berry my-4"></div>

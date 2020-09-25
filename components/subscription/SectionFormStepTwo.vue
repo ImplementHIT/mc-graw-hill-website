@@ -167,7 +167,7 @@ export default {
   },
   created() {
     this.$axios.$get(process.env.api + "rotations", this.form).then((res) => {
-      this.rotations = res;
+      this.rotations = res.sort();
     });
   },
   methods: {

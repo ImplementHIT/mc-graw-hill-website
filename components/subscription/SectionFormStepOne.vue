@@ -341,6 +341,7 @@ export default {
       this.form.school_level = 5;
       this.form.agree = true;
     },
+
     validate() {
       this.$refs.form.validate().then((success) => {
         if (!this.form.carrier_sms_charge_understanding)

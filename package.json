@@ -24,7 +24,6 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "nuxt": "^2.14.6",
-    "nuxt-stripe-module": "^2.1.0",
     "vee-validate": "^3.4.0"
   },
   "devDependencies": {
