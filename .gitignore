@@ -8,7 +8,6 @@ yarn-error.log
 
 # other
 .nuxt
-.nuxt/*.js
 dist
 .vscode
 .idea
