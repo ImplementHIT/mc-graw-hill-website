@@ -283,8 +283,9 @@
                         href="javascript:void(0)"
                         @click.prevent="validate"
                         class="next_page btn-lg button btn-secondary btn-oval pointer"
-                        >Next</a
                       >
+                        Next
+                      </a>
                     </div>
                   </div>
                 </form>
@@ -317,7 +318,7 @@ export default {
       .then((res) => (this.programs = res.sort()));
 
     this.$axios.$get("schools.json").then((res) => (this.schools = res.sort()));
-    //this.dummy();
+    this.dummy();
   },
   watch: {
     "form.carrier_sms_charge_understanding": function(val, oldVal) {
@@ -340,6 +341,20 @@ export default {
       this.form.school_program = "AMITA Health Program";
       this.form.school_level = 5;
       this.form.agree = true;
+      this.form.rotations = [
+        {
+          name: "Trauma",
+          date_start: "2020-10-01",
+          date_end: "2020-10-31",
+          template: "1",
+        },
+        {
+          name: "SICU",
+          date_start: "2020-11-01",
+          date_end: "2020-11-30",
+          template: "12",
+        },
+      ];
     },
 
     validate() {

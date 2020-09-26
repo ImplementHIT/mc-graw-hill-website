@@ -46,7 +46,6 @@
 export default {
   methods: {
     hideSideBar() {
-      console.log('sidebar');
       document.body.classList.add("toggled");
     },
   },

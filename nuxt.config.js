@@ -4,6 +4,7 @@ export default {
       process.env.NODE_ENV == "production"
         ? "https://engage.implementhit.net/api/"
         : "http://localhost:8000/api/",
+    stripeKey: process.env.STRIPE_KEY,
   },
   head: {
     titleTemplate: "%s - My Path Surgery",
@@ -121,6 +122,7 @@ export default {
           "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js",
       },
       { src: "https://kit.fontawesome.com/dc27e0490d.js" },
+      { src: "https://js.stripe.com/v3/" },
     ],
   },
   css: ["@/css/main.css"],

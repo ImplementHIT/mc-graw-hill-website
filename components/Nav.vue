@@ -54,7 +54,6 @@
 export default {
   methods: {
     showSideBar() {
-      console.log("NAV");
       document.body.classList.remove("toggled");
     },
   },

@@ -101,6 +101,7 @@
                               <option
                                 v-for="rotation in rotations"
                                 :key="rotation.id"
+                                :value="rotation.id"
                               >
                                 {{ rotation.name }}
                               </option>

@@ -119,6 +119,7 @@ export default {
         file_absite_performance: null,
         file_logs: null,
         quantity: 5,
+        charge: null,
       },
     };
   },
