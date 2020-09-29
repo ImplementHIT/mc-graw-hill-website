@@ -82,6 +82,7 @@
                       </button>
                     </div>
                   </div>
+
                 </div>
               </form>
             </div>
@@ -146,7 +147,6 @@ export default {
       // More general https://stripe.com/docs/stripe.js#stripe-create-token.
       createToken()
         .then((data) => {
-          console.log(data.token);
           this.form.charge = {
             source: data.token.id,
             amount: this.$store.state.planPrice * 100,
@@ -157,20 +157,56 @@ export default {
               this.form.plan.price,
             email: this.form.email,
           };
-          console.log(this.charge);
 
-          this.$axios
-            .$post(process.env.api + "enrollment", { form: this.form })
-            .then((res) => {
-              console.log(res);
-            })
-            .finally(() => {
-              this.sending = false;
-              this.complete = true;
-              this.message = "In the next 12 hours, you will receive";
-            });
+          this.sendData();
         })
         .catch((error) => console.log(error));
+    },
+    sendData() {
+      this.$axios
+        .$post(process.env.api + "enrollment", this.prepareFormData(), {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.message = "In the next 12 hours, you will receive";
+        })
+        .finally(() => {
+          this.sending = false;
+          this.complete = true;
+        });
+    },
+    prepareFormData() {
+      let formData = new FormData();
+
+      formData.append("plan", JSON.stringify(this.form.plan));
+      formData.append("first_name", this.form.first_name);
+      formData.append("last_name", this.form.last_name);
+      formData.append("email", this.form.email);
+      formData.append("mobile", this.form.mobile);
+      formData.append(
+        "carrier_sms_charge_understanding",
+        this.form.carrier_sms_charge_understanding
+      );
+      formData.append("agree", this.form.agree);
+      formData.append("school_country", this.form.school_country);
+      formData.append("school_name", this.form.school_name);
+      formData.append("school_grad_year", this.form.school_grad_year);
+      formData.append("school_program", this.form.school_program);
+      formData.append("school_level", this.form.school_level);
+      formData.append("number_of_questions", this.form.quantity);
+
+      formData.append("rotations", JSON.stringify(this.form.rotations));
+      formData.append("charge", JSON.stringify(this.form.charge));
+
+      formData.append(
+        "file_absite_performance",
+        this.form.file_absite_performance
+      );
+      formData.append("file_logs", this.form.file_logs);
+
+      return formData;
     },
   },
 };

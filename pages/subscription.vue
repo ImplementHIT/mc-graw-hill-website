@@ -100,18 +100,18 @@ export default {
     return {
       form: {
         plan: 6,
-        step: 4,
+        step: 1,
         first_name: "",
         last_name: "",
         email: "",
         mobile: "",
         carrier_sms_charge_understanding: false,
+        agree: false,
         school_country: "",
         school_name: "",
         school_grad_year: "",
         school_program: "",
         school_level: "",
-        agree: false,
         rotations: [
           { name: "", date_start: "", date_end: "", template: "" },
           { name: "", date_start: "", date_end: "", template: "" },

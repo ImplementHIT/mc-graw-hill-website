@@ -51,7 +51,7 @@
                         <div class="form-group">
                           <ValidationProvider
                             v-slot="{ classes, errors }"
-                            :name="'Start Date' + (i + 1)"
+                            :name="'start_date_' + (i + 1)"
                             rules="required"
                           >
                             <input
@@ -70,7 +70,7 @@
                         <div class="form-group">
                           <ValidationProvider
                             v-slot="{ classes, errors }"
-                            :name="'Finish Date' + (i + 1)"
+                            :name="'finish_date_' + (i + 1)"
                             rules="required"
                           >
                             <input
@@ -125,6 +125,17 @@
 
                   <div class="dropdown-divider my-4"></div>
 
+                  <div v-show="dateOverlapingError">
+                    <div class="row">
+                      <div
+                        class="col-12 col-md pr-md-5 text-center text-white bg-danger py-3"
+                      >
+                        {{ dateOverlapingError }}
+                      </div>
+                    </div>
+                    <div class="dropdown-divider my-4"></div>
+                  </div>
+
                   <PlanInformationAlert :form="form" />
                 </div>
 
@@ -163,7 +174,7 @@ export default {
   data() {
     return {
       rotations: [],
-      errors: [],
+      dateOverlapingError: null,
     };
   },
   created() {
@@ -183,10 +194,55 @@ export default {
         template: "",
       });
     },
+    dateRangeOverlaps(a_start, a_end, b_start, b_end) {
+      if (a_start < b_start && b_start < a_end) return true; // b starts in a
+      if (a_start < b_end && b_end < a_end) return true; // b ends in a
+      if (b_start < a_start && a_end < b_end) return true; // a in b
+      return false;
+    },
+    multipleDateRangeOverlaps(timeEntries) {
+      let i = 0,
+        j = 0;
+      let timeIntervals = timeEntries.filter(
+        (entry) =>
+          entry.date_start != null &&
+          entry.date_end != null &&
+          entry.date_start.length === 10 &&
+          entry.date_end.length === 10
+      );
+
+      if (timeIntervals != null && timeIntervals.length > 1)
+        for (i = 0; i < timeIntervals.length - 1; i += 1) {
+          for (j = i + 1; j < timeIntervals.length; j += 1) {
+            if (
+              this.dateRangeOverlaps(
+                new Date(timeIntervals[i].date_end).getTime(),
+                new Date(timeIntervals[i].date_start).getTime(),
+                new Date(timeIntervals[j].date_start).getTime(),
+                new Date(timeIntervals[j].date_end).getTime()
+              )
+            )
+              return true;
+          }
+        }
+      return false;
+    },
     validate() {
       this.$refs.form.validate().then((success) => {
-        if (success) this.form.step++;
-        else this.errors.push("Please confirm SMS carrier charge");
+        if (success && this.multipleDateRangeOverlaps(this.form.rotations)) {
+          this.form.step++;
+          this.dateOverlapingError = "";
+        } else {
+          let errorsObj = {},
+            i;
+          for (i = 0; i <= this.form.rotations.length; i++) {
+            errorsObj["start_date_" + (i + 1)] = ["Dates are overlapping"];
+            errorsObj["finish_date_" + (i + 1)] = ["Dates are overlapping"];
+          }
+          this.dateOverlapingError = "Dates overlap please verify";
+          this.$refs.form.setErrors(errorsObj);
+          return;
+        }
       });
     },
   },

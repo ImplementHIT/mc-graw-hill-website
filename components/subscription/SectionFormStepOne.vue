@@ -318,7 +318,6 @@ export default {
       .then((res) => (this.programs = res.sort()));
 
     this.$axios.$get("schools.json").then((res) => (this.schools = res.sort()));
-    this.dummy();
   },
   watch: {
     "form.carrier_sms_charge_understanding": function(val, oldVal) {
@@ -332,7 +331,7 @@ export default {
     dummy() {
       this.form.first_name = "Julio";
       this.form.last_name = "Solis";
-      this.form.email = "js@implementhit.com";
+      this.form.email = "js" + new Date().getTime() + "@implementhit.com";
       this.form.mobile = "3186018448";
       this.form.carrier_sms_charge_understanding = true;
       this.form.school_country = "Foreign";
@@ -356,7 +355,6 @@ export default {
         },
       ];
     },
-
     validate() {
       this.$refs.form.validate().then((success) => {
         if (!this.form.carrier_sms_charge_understanding)
