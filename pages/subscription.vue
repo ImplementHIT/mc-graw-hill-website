@@ -105,6 +105,8 @@ export default {
         last_name: "",
         email: "",
         mobile: "",
+        password: "",
+        confirm_password: "",
         carrier_sms_charge_understanding: false,
         agree: false,
         school_country: "",

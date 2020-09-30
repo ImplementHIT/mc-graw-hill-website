@@ -104,6 +104,49 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col-12 col-md-6 ">
+                      <div class="form-group">
+                        <label for="email" class="">Password</label>
+                        <div>
+                          <ValidationProvider
+                            rules="required|verify_password|min:8|confirm_password:@confirm"
+                            v-slot="{ classes, errors }"
+                            name="password"
+                          >
+                            <input
+                              type="password"
+                              class="form-control"
+                              :class="classes"
+                              id="password"
+                              v-model="form.password"
+                            />
+                            <span>{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 ">
+                      <div class="form-group">
+                        <label for="email" class="">Confirm Password</label>
+                        <div>
+                          <ValidationProvider
+                            name="confirm"
+                            rules="required"
+                            v-slot="{ classes, errors }"
+                          >
+                            <input
+                              type="password"
+                              class="form-control"
+                              :class="classes"
+                              id="confirm_password"
+                              v-model="form.confirm_password"
+                            />
+                            <span>{{ errors[0] }}</span>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="col-12">
                       <div class="custom-control custom-checkbox">
                         <input

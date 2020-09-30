@@ -82,7 +82,6 @@
                       </button>
                     </div>
                   </div>
-
                 </div>
               </form>
             </div>
@@ -185,6 +184,8 @@ export default {
       formData.append("last_name", this.form.last_name);
       formData.append("email", this.form.email);
       formData.append("mobile", this.form.mobile);
+      formData.append("password", this.form.password);
+      formData.append("confirm_password", this.form.confirm_password);
       formData.append(
         "carrier_sms_charge_understanding",
         this.form.carrier_sms_charge_understanding
