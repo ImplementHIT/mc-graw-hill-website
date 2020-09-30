@@ -93,7 +93,7 @@
                             v-slot="{ classes, errors }"
                           >
                             <input
-                              type="number"
+                              type="text"
                               class="form-control"
                               :class="classes"
                               id="phone"
