@@ -378,6 +378,8 @@ export default {
       this.form.last_name = "Solis";
       this.form.email = "js" + new Date().getTime() + "@implementhit.com";
       this.form.mobile = "3186018448";
+      this.form.password = "Password12!";
+      this.form.confirm_password = "Password12!";
       this.form.carrier_sms_charge_understanding = true;
       this.form.school_country = "Foreign";
       this.form.school_name = "";
