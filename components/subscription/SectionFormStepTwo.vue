@@ -229,7 +229,7 @@ export default {
     },
     validate() {
       this.$refs.form.validate().then((success) => {
-        if (success && this.multipleDateRangeOverlaps(this.form.rotations)) {
+        if (success && !this.multipleDateRangeOverlaps(this.form.rotations)) {
           this.form.step++;
           this.dateOverlapingError = "";
         } else {
