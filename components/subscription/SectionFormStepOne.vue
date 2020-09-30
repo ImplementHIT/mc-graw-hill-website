@@ -115,6 +115,7 @@
                           >
                             <input
                               type="password"
+                              autocomplete="off"
                               class="form-control"
                               :class="classes"
                               id="password"
@@ -136,6 +137,7 @@
                           >
                             <input
                               type="password"
+                              autocomplete="off"
                               class="form-control"
                               :class="classes"
                               id="confirm_password"
