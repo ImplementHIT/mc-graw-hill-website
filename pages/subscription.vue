@@ -100,7 +100,7 @@ export default {
     return {
       form: {
         plan: 6,
-        step: 2,
+        step: 1,
         first_name: "",
         last_name: "",
         email: "",
