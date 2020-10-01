@@ -10,14 +10,14 @@ section.home-intro {
     -o-background-size: cover;
     background-size: cover;
     background-position: 40% 50%;
-    background-image: url("~assets//images/intro-background@2x.jpg");
+    background-image: url("~assets/images/intro-background@2x.jpg");
   }
   @include lg {
     background-position: center center;
     padding: 100px 40px;
   }
   @include xl {
-    background-image: url("~assets//images/intro-background@3x.jpg");
+    background-image: url("~assets/images/intro-background@3x.jpg");
   }
   .boxed {
     padding-top: 0;
@@ -71,7 +71,7 @@ section.home-intro {
     @include bg-cover;
     background-attachment: fixed;
     background-position: top center;
-    background-image: url("~assets//images/stock-4.jpg");
+    background-image: url("~assets/images/stock-4.jpg");
     @include opacity-10;
   }
   .books-wrap {
@@ -94,7 +94,7 @@ section.home-intro {
     @include bg-cover;
     background-position: center center;
     background-attachment: fixed;
-    background-image: url("~assets//images/stock-1.jpg");
+    background-image: url("~assets/images/stock-1.jpg");
     @include opacity-20;
   }
   .books-wrap {
