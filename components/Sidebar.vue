@@ -11,30 +11,36 @@
         /></nuxt-link>
       </div>
       <div class="list-group list-group-flush">
-        <a href="#path-surgery" class="list-group-item list-group-item-action"
-          >Path-Surgery</a
-        >
-        <a
-          href="#mcgraw-hill-medical-content"
+        <nuxt-link
+          :to="{ path: '/', hash: '#path-surgery' }"
           class="list-group-item list-group-item-action"
-          >McGraw Hill Medical Content</a
-        >
-        <a href="#rotation" class="list-group-item list-group-item-action"
-          >Rotation</a
-        >
-        <a
-          href="#absite-Performance"
+          >Path-Surgery
+        </nuxt-link>
+        <nuxt-link
+          :to="{ path: '/', hash: '#mcgraw-hill-medical-content' }"
           class="list-group-item list-group-item-action"
-          >ABSITE Performance</a
-        >
-        <a
-          href="#advanced-quiz-functionality"
+          >McGraw Hill Medical Content
+        </nuxt-link>
+        <nuxt-link
+          :to="{ path: '/', hash: '#rotation' }"
           class="list-group-item list-group-item-action"
-          >Advanced Quiz</a
-        >
-        <a href="#subscription" class="list-group-item list-group-item-action"
-          >Subscription</a
-        >
+          >Rotation
+        </nuxt-link>
+        <nuxt-link
+          :to="{ path: '/', hash: '#absite-Performance' }"
+          class="list-group-item list-group-item-action"
+          >ABSITE Performance
+        </nuxt-link>
+        <nuxt-link
+          :to="{ path: '/', hash: '#advanced-quiz-functionality' }"
+          class="list-group-item list-group-item-action"
+          >Advanced Quiz
+        </nuxt-link>
+        <nuxt-link
+          :to="{ path: '/', hash: '#subscription' }"
+          class="list-group-item list-group-item-action"
+          >Subscription
+        </nuxt-link>
       </div>
     </div>
     <!-- overlay -->

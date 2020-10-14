@@ -21,28 +21,44 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <nuxt-link to="/#path-surgery" class="nav-link">Path-Surgery</nuxt-link>
+            <nuxt-link
+              :to="{ path: '/', hash: '#path-surgery' }"
+              class="nav-link"
+              >Path-Surgery</nuxt-link
+            >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/#mcgraw-hill-medical-content" class="nav-link"
+            <nuxt-link
+              :to="{ path: '/', hash: '#mcgraw-hill-medical-content' }"
+              class="nav-link"
               >McGraw Hill Medical Content</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/#rotation" class="nav-link">Rotation</nuxt-link>
+            <nuxt-link :to="{ path: '/', hash: '#rotation' }" class="nav-link"
+              >Rotation</nuxt-link
+            >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/#absite-Performance" class="nav-link"
+            <nuxt-link
+              :to="{ path: '/', hash: '#absite-Performance' }"
+              class="nav-link"
               >ABSITE Performance</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/#advanced-quiz-functionality" class="nav-link"
+            <nuxt-link
+              :to="{ path: '/', hash: '#advanced-quiz-functionality' }"
+              class="nav-link"
               >Advanced Quiz</nuxt-link
             >
           </li>
           <li class="nav-item">
-            <nuxt-link to="/#subscription" class="nav-link">Subscription</nuxt-link>
+            <nuxt-link
+              :to="{ path: '/', hash: '#subscription' }"
+              class="nav-link"
+              >Subscription</nuxt-link
+            >
           </li>
         </ul>
       </div>

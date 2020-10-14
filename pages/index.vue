@@ -64,9 +64,6 @@ export default {
       setTimeout(() => this.$nuxt.$loading.finish(), 500);
     });
   },
-  data() {
-    return {};
-  },
   head() {
     return {
       title: "Landing",
