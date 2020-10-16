@@ -152,7 +152,7 @@ export default {
             description:
               "McGraw Hill - " +
               this.form.plan.id +
-              " months MyPath - Surgery $" +
+              " months RotationPrep: Surgery $" +
               this.form.plan.price,
             email: this.form.email,
           };

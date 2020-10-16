@@ -7,7 +7,7 @@ export default {
     stripeKey: process.env.STRIPE_KEY,
   },
   head: {
-    titleTemplate: "%s - My Path Surgery",
+    titleTemplate: "%s - RotationPrep: Surgery",
     meta: [
       { charset: "utf-8" },
       {

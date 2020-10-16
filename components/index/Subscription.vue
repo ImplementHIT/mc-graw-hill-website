@@ -12,7 +12,7 @@
             ${{ plan.price }}
           </h5>
           <h5 class="card-title fw-light color-dark">
-            MyPath - Surgery
+            RotationPrep: Surgery
           </h5>
         </div>
         <div class="card-text my-4">

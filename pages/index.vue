@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-12 col-md-7 ">
             <div class="text-center text-md-left">
-              <h2 class="headline-title color-berry">MyPath - Surgery</h2>
+              <h2 class="headline-title color-berry">RotationPrep: Surgery</h2>
               <p class="headline-subtitle">
                 Personalized ABSITE AND Rotation Prep
               </p>
