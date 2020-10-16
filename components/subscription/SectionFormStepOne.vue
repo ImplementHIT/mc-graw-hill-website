@@ -109,7 +109,8 @@
                         <label for="email" class="">Password</label>
                         <div>
                           <ValidationProvider
-                            rules="required|verify_password|min:8|confirm_password:@confirm"
+                            mode="lazy"
+                            rules="required|verify_password|min:8"
                             v-slot="{ classes, errors }"
                             name="password"
                           >
@@ -131,8 +132,9 @@
                         <label for="email" class="">Confirm Password</label>
                         <div>
                           <ValidationProvider
+                            mode="lazy"
                             name="confirm"
-                            rules="required"
+                            rules="required|confirm_password:@password"
                             v-slot="{ classes, errors }"
                           >
                             <input
@@ -373,35 +375,6 @@ export default {
     },
   },
   methods: {
-    dummy() {
-      this.form.first_name = "Julio";
-      this.form.last_name = "Solis";
-      this.form.email = "js" + new Date().getTime() + "@implementhit.com";
-      this.form.mobile = "3186018448";
-      this.form.password = "Password12!";
-      this.form.confirm_password = "Password12!";
-      this.form.carrier_sms_charge_understanding = true;
-      this.form.school_country = "Foreign";
-      this.form.school_name = "";
-      this.form.school_grad_year = "1995";
-      this.form.school_program = "AMITA Health Program";
-      this.form.school_level = 5;
-      this.form.agree = true;
-      this.form.rotations = [
-        {
-          name: "Trauma",
-          date_start: "2020-10-01",
-          date_end: "2020-10-31",
-          template: "1",
-        },
-        {
-          name: "SICU",
-          date_start: "2020-11-01",
-          date_end: "2020-11-30",
-          template: "12",
-        },
-      ];
-    },
     validate() {
       this.$refs.form.validate().then((success) => {
         if (!this.form.carrier_sms_charge_understanding)
