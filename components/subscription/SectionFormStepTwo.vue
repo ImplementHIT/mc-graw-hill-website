@@ -39,7 +39,7 @@
                               type="text"
                               class="form-control"
                               :class="classes"
-                              id="rotation-name-1"
+                              :id="'rotation-name-' + (i + 1)"
                               placeholder="Rotation name"
                               v-model="form.rotations[i].name"
                             />
@@ -58,7 +58,7 @@
                               type="date"
                               class="form-control"
                               :class="classes"
-                              id="star-date-1"
+                              :id="'star-date-' + (i + 1)"
                               placeholder="Start Date"
                               v-model="form.rotations[i].date_start"
                             />
@@ -77,7 +77,7 @@
                               type="date"
                               class="form-control"
                               :class="classes"
-                              id="end-date-1"
+                              :id="'end-date-' + (i + 1)"
                               placeholder="End Date"
                               v-model="form.rotations[i].date_end"
                             />
