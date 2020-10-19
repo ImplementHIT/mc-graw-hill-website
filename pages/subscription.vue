@@ -47,7 +47,7 @@
               class="tab-content mt-5 mx-w-800 mx-auto"
               id="content-subscription"
             >
-              <no-ssr>
+              <client-only placeholder="Loading...">
                 <SectionFormStepOne :form="form" />
 
                 <SectionFormStepTwo :form="form" @back="previousStep" />
@@ -55,7 +55,7 @@
                 <SectionFormStepThree :form="form" @back="previousStep" />
 
                 <SectionFormThankYou :form="form" />
-              </no-ssr>
+              </client-only>
             </div>
           </div>
 
