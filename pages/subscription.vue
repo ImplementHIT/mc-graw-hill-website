@@ -19,7 +19,6 @@
           <div>
             <div class="subscription-steps mx-w-500 mx-auto my-5">
               <ul class="nav nav-pills row justify-content-center" id="steps">
-
                 <li
                   class="nav-item"
                   v-for="(step, k) in [
@@ -48,13 +47,15 @@
               class="tab-content mt-5 mx-w-800 mx-auto"
               id="content-subscription"
             >
-              <SectionFormStepOne :form="form" />
+              <no-ssr>
+                <SectionFormStepOne :form="form" />
 
-              <SectionFormStepTwo :form="form" @back="previousStep" />
+                <SectionFormStepTwo :form="form" @back="previousStep" />
 
-              <SectionFormStepThree :form="form" @back="previousStep" />
+                <SectionFormStepThree :form="form" @back="previousStep" />
 
-              <SectionFormThankYou :form="form" />
+                <SectionFormThankYou :form="form" />
+              </no-ssr>
             </div>
           </div>
 
