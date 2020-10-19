@@ -373,3 +373,26 @@ section{
 		}
 	}
 }
+
+
+//remove row
+.row{
+	> .btn-remove-row{
+		color: $berry-color;
+		background-color: rgba($berry-color, 0.1);
+		height: 30px;
+		width: 30px;
+		@include circle;
+		position: absolute;
+		top: 2px;
+		right: 0px;
+		@include transition-03;
+		.far,.fas,.fa{
+			font-size: $font-size-xs;
+		}
+		&:hover{
+			color: white;
+			background-color: rgba($berry-color, 1);
+		}
+	}
+}
