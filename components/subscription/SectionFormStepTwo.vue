@@ -187,7 +187,6 @@ export default {
   },
   created() {
     this.$axios.$get(process.env.api + "rotations", this.form).then((res) => {
-      console.log(res);
       this.rotations = res.sort(function(a, b) {
         if (a.name < b.name) {
           return -1;
