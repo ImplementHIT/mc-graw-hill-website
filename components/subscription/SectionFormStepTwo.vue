@@ -24,7 +24,7 @@
 
                   <ValidationObserver ref="form">
                     <div
-                      class="row"
+                      class="row position-relative pr-5"
                       v-for="(rot, i) in form.rotations"
                       :key="i"
                     >
@@ -110,6 +110,14 @@
                           </ValidationProvider>
                         </div>
                       </div>
+                      <!-- remove-row -->
+                      <button
+                        type="button"
+                        class="btn-link btn-remove-row"
+                        @click.prevent="removeRotation(i)"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
                     </div>
                   </ValidationObserver>
 
@@ -179,12 +187,24 @@ export default {
   },
   created() {
     this.$axios.$get(process.env.api + "rotations", this.form).then((res) => {
-      this.rotations = res.sort();
+      console.log(res);
+      this.rotations = res.sort(function(a, b) {
+        if (a.name < b.name) {
+          return -1;
+        }
+        if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
+      });
     });
   },
   methods: {
     back() {
       this.$emit("back");
+    },
+    removeRotation(index) {
+      this.form.rotations.splice(index, 1);
     },
     AddRotation() {
       this.form.rotations.push({
