@@ -16,12 +16,9 @@
             </p>
           </div>
 
-          <!-- steps -->
           <div>
             <div class="subscription-steps mx-w-500 mx-auto my-5">
               <ul class="nav nav-pills row justify-content-center" id="steps">
-                <!-- ------------------------------------------------- -->
-                <!-- agregar la clase "visited" al nav-item cuando el paso este finalizado -->
 
                 <li
                   class="nav-item"
@@ -51,16 +48,12 @@
               class="tab-content mt-5 mx-w-800 mx-auto"
               id="content-subscription"
             >
-              <!-- Step One -->
               <SectionFormStepOne :form="form" />
 
-              <!-- Step Two -->
               <SectionFormStepTwo :form="form" @back="previousStep" />
 
-              <!-- Step Three -->
               <SectionFormStepThree :form="form" @back="previousStep" />
 
-              <!-- Step Four -->
               <SectionFormThankYou :form="form" />
             </div>
           </div>
