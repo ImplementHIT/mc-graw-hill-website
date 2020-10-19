@@ -188,12 +188,8 @@ export default {
   created() {
     this.$axios.$get(process.env.api + "rotations", this.form).then((res) => {
       this.rotations = res.sort(function(a, b) {
-        if (a.name < b.name) {
-          return -1;
-        }
-        if (a.name > b.name) {
-          return 1;
-        }
+        if (a.name < b.name) return -1;
+        if (a.name > b.name) return 1;
         return 0;
       });
     });
