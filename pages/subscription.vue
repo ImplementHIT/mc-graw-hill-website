@@ -137,7 +137,6 @@ export default {
         : this.$store.state.plans[0];
 
     this.$store.commit("setPlanPrice", this.form.plan.price);
-    this.dummy();
   },
   methods: {
     dummy() {
