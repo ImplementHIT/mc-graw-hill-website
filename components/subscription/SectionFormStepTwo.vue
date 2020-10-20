@@ -243,6 +243,11 @@ export default {
       return false;
     },
     validate() {
+      console.log(this.form.rotations.length);
+      if (this.form.rotations.length <= 0) {
+        this.dateOverlapingError = 'You need to define at least one rotation.';
+        return false;
+      }
       this.$refs.form.validate().then((success) => {
         if (success && !this.multipleDateRangeOverlaps(this.form.rotations)) {
           this.form.step++;
