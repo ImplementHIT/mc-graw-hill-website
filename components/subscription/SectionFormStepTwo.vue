@@ -244,7 +244,7 @@ export default {
     },
     validate() {
       if (this.form.rotations.length <= 1) {
-        this.dateOverlapingError = 'You need to define at least two rotation.';
+        this.dateOverlapingError = "You need to define at least two rotations.";
         return false;
       }
       this.$refs.form.validate().then((success) => {
@@ -252,14 +252,16 @@ export default {
           this.form.step++;
           this.dateOverlapingError = "";
         } else {
-          let errorsObj = {},
-            i;
-          for (i = 0; i <= this.form.rotations.length; i++) {
-            errorsObj["start_date_" + (i + 1)] = ["Dates are overlapping"];
-            errorsObj["finish_date_" + (i + 1)] = ["Dates are overlapping"];
+          if (this.multipleDateRangeOverlaps(this.form.rotations)) {
+            let errorsObj = {},
+              i;
+            for (i = 0; i <= this.form.rotations.length; i++) {
+              errorsObj["start_date_" + (i + 1)] = ["Dates are overlapping"];
+              errorsObj["finish_date_" + (i + 1)] = ["Dates are overlapping"];
+            }
+            this.dateOverlapingError = "Dates overlap please verify";
+            this.$refs.form.setErrors(errorsObj);
           }
-          this.dateOverlapingError = "Dates overlap please verify";
-          this.$refs.form.setErrors(errorsObj);
           return;
         }
       });

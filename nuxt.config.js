@@ -1,5 +1,6 @@
 export default {
   env: {
+    env: process.env.NODE_ENV,
     api:
       process.env.NODE_ENV == "production"
         ? "https://engage.implementhit.net/api/"
