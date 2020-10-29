@@ -24,7 +24,7 @@
             <nuxt-link
               :to="{ path: '/', hash: '#path-surgery' }"
               class="nav-link"
-              >Path-Surgery</nuxt-link
+              >RotationPrep: Surgery</nuxt-link
             >
           </li>
           <li class="nav-item">

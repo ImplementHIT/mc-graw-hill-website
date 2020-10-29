@@ -9,7 +9,7 @@
               <img src="~/assets/images/hospital.png" alt="heart-icon" />
             </div>
           </div>
-          <h2 class="headline-title-xl color-berry">My <br />Path-Surgery</h2>
+          <h2 class="headline-title-xl color-berry">RotationPrep: <br />Surgery</h2>
         </div>
         <ul class="list-item-berry home-list home-description pt-4">
           <li class="color-berry">

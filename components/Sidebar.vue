@@ -14,7 +14,7 @@
         <nuxt-link
           :to="{ path: '/', hash: '#path-surgery' }"
           class="list-group-item list-group-item-action"
-          >Path-Surgery
+          >RotationPrep: Surgery
         </nuxt-link>
         <nuxt-link
           :to="{ path: '/', hash: '#mcgraw-hill-medical-content' }"
