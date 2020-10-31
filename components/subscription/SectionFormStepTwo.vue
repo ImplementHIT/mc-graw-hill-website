@@ -89,7 +89,7 @@
                         <div class="form-group">
                           <ValidationProvider
                             v-slot="{ classes, errors }"
-                            :name="'School' + (i + 1)"
+                            :name="'Rotation' + (i + 1)"
                             rules="required"
                           >
                             <select
