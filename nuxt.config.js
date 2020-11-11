@@ -132,7 +132,7 @@ export default {
   axios: {
     baseURL:
       process.env.NODE_ENV == "production"
-        ? "http://mypath.implementhit.net"
+        ? "/"
         : "http://localhost:3333",
     headers: {
       Authorization:
