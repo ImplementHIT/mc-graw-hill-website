@@ -20,7 +20,7 @@
           <div class="mt-5 row justify-content-center">
             <Subscription v-for="(plan, p) in plans" :plan="plan" :key="p" />
           </div>
-          <div class="text-center mt-2 boxed white-text p-5">
+          <div class="text-center mt-2 boxed white-text p-5 d-none">
             <small>
               *Predictive Assessment Exams can only be purchased with a
               SmartBank Subscription. Bundled Savings not applicable with other
