@@ -139,6 +139,7 @@ export default {
         process.env.NODE_ENV == "production"
           ? "Bearer uBzPfHFBJs1VAEvElki56YMlDUg22xAA6nD4L822HdnZAJZ6u5E2TkNoomGLgWR0UW06N7rEVydyQaqr"
           : "Bearer dirGtx0kKJxrpmPzDGnITeQNdGt7yG1mg8zU1eSKvPPkWeREt74J3n6zzHroHROFh37yQ93Jm6nQrzdA",
+      'Access-Control-Allow-Origin': '*',
     },
   },
   plugins: ["~/plugins/vee-validate.js"],
