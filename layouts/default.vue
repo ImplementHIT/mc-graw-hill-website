@@ -3,6 +3,7 @@
     <Sidebar />
     <Nav />
     <Nuxt />
+    <Footer />
   </div>
 </template>
 
